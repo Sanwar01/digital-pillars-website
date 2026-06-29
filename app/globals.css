@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-pillar-text antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply text-pillar-ink tracking-normal;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  summary:focus-visible {
+    @apply outline outline-4 outline-offset-2 outline-pillar-blue;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-[min(100%-2rem,1180px)];
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .eyebrow {
+    @apply mb-3 text-xs font-black uppercase tracking-normal text-pillar-blue;
+  }
+
+  .button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-lg px-5 py-3 font-extrabold no-underline transition hover:-translate-y-0.5 focus-visible:-translate-y-0.5;
+  }
+
+  .button-primary {
+    @apply bg-pillar-blue text-white shadow-blue hover:bg-[#2f86ff];
+  }
+
+  .button-secondary {
+    @apply border border-white/30 bg-white/5 text-white;
+  }
+
+  .button-light {
+    @apply border border-pillar-line bg-white text-pillar-ink shadow-soft;
+  }
+
+  .button::after {
+    content: "→";
+    @apply ml-2;
+  }
+
+  .card {
+    @apply rounded-[10px] border border-pillar-line bg-white shadow-soft;
+  }
+}

@@ -3,10 +3,14 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import { PageShell } from '@/components/PageShell';
-import { Geist } from "next/font/google";
-import { cn } from "@/lib/utils";
+import { Outfit } from 'next/font/google';
+import { cn } from '@/lib/utils';
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -24,11 +28,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={cn("font-sans", geist.variable)}>
-      <PageShell>
-        <body>{children}</body>
-      </PageShell>
-      {/* <Toaster position="bottom-right" theme="dark" /> */}
+    <html lang="en-GB" className={cn('font-sans', outfit.variable)}>
+      <head>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={cn(outfit.className, 'font-sans')}>
+        <PageShell>{children}</PageShell>
+        {/* <Toaster position="bottom-right" theme="dark" /> */}
+      </body>
     </html>
   );
 }

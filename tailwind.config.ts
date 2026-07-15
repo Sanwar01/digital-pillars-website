@@ -33,7 +33,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: [
-          'Inter',
+          'var(--font-sans)',
+          'Outfit',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
@@ -41,6 +42,7 @@ const config: Config = {
           'Segoe UI',
           'sans-serif',
         ],
+        display: ['Cabinet Grotesk', 'var(--font-sans)', 'sans-serif'],
       },
     },
   },

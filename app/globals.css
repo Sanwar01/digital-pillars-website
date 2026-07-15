@@ -1,73 +1,135 @@
+@import url("https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: auto;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      scroll-behavior: smooth;
+    :root {
+        --background: 240 6% 2%;
+        --foreground: 0 0% 100%;
+        --card: 0 0% 4%;
+        --card-foreground: 0 0% 100%;
+        --popover: 0 0% 4%;
+        --popover-foreground: 0 0% 100%;
+        --primary: 74 100% 57%;
+        --primary-foreground: 240 6% 2%;
+        --secondary: 0 0% 10%;
+        --secondary-foreground: 0 0% 100%;
+        --muted: 0 0% 7%;
+        --muted-foreground: 0 0% 53%;
+        --accent: 74 100% 57%;
+        --accent-foreground: 240 6% 2%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 100%;
+        --input: 0 0% 15%;
+        --ring: 74 100% 57%;
+        --radius: 0.25rem;
     }
-  }
-
-  body {
-    @apply bg-white font-sans text-pillar-text antialiased;
-  }
-
-  h1,
-  h2,
-  h3 {
-    @apply text-pillar-ink tracking-normal;
-  }
-
-  a:focus-visible,
-  button:focus-visible,
-  input:focus-visible,
-  select:focus-visible,
-  textarea:focus-visible,
-  summary:focus-visible {
-    @apply outline outline-4 outline-offset-2 outline-pillar-blue;
-  }
 }
 
-@layer components {
-  .container-page {
-    @apply mx-auto w-[min(100%-2rem,1180px)];
-  }
+@layer base {
+    * {
+        border-color: rgba(255, 255, 255, 0.08);
+    }
+    html {
+        scroll-behavior: auto;
+    }
+    body {
+        margin: 0;
+        background-color: #050506;
+        color: #ffffff;
+        font-family: "Outfit", sans-serif;
+        font-weight: 300;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+    }
+    ::selection {
+        background: #d3ff24;
+        color: #050506;
+    }
+}
 
-  .section {
-    @apply py-16 md:py-24;
-  }
+.font-display {
+    font-family: "Cabinet Grotesk", "Outfit", sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
 
-  .eyebrow {
-    @apply mb-3 text-xs font-black uppercase tracking-normal text-pillar-blue;
-  }
+.overline {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+    font-weight: 500;
+}
 
-  .button {
-    @apply inline-flex min-h-12 items-center justify-center rounded-lg px-5 py-3 font-extrabold no-underline transition hover:-translate-y-0.5 focus-visible:-translate-y-0.5;
-  }
+.text-stroke {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+    color: transparent;
+}
 
-  .button-primary {
-    @apply bg-pillar-blue text-white shadow-blue hover:bg-[#2f86ff];
-  }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 9px;
+}
+::-webkit-scrollbar-track {
+    background: #050506;
+}
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d3ff24;
+}
 
-  .button-secondary {
-    @apply border border-white/30 bg-white/5 text-white;
-  }
+/* Marquee */
+@keyframes marquee-x {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+.animate-marquee {
+    animation: marquee-x 32s linear infinite;
+    white-space: nowrap;
+    display: inline-flex;
+    will-change: transform;
+}
+.marquee-fast {
+    animation-duration: 22s;
+}
 
-  .button-light {
-    @apply border border-pillar-line bg-white text-pillar-ink shadow-soft;
-  }
+/* Lenis */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
 
-  .button::after {
-    content: "→";
-    @apply ml-2;
-  }
+@media (prefers-reduced-motion: reduce) {
+    .animate-marquee {
+        animation: none;
+    }
+}
 
-  .card {
-    @apply rounded-[10px] border border-pillar-line bg-white shadow-soft;
-  }
+.link-underline {
+    background-image: linear-gradient(#d3ff24, #d3ff24);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-underline:hover {
+    background-size: 100% 1px;
 }

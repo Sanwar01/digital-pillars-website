@@ -1,110 +1,119 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
+import { CtaButton } from '@/components/CtaButton';
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-] as const;
+const NAV = [
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Our work', to: '/our-work' },
+  { label: 'Contact', to: '/contact' },
+];
 
 export function Header() {
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const menuRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-        buttonRef.current?.focus();
-      }
-    }
-
-    function onPointerDown(event: PointerEvent) {
-      const target = event.target as Node;
-      if (
-        !buttonRef.current?.contains(target) &&
-        !menuRef.current?.contains(target)
-      ) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
-
+  console.log(pathname);
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-navy-950/95 backdrop-blur-xl">
-      <nav className="container-page flex min-h-[78px] items-center justify-between gap-4" aria-label="Primary navigation">
-        <Link href="/" className="inline-flex items-center gap-3 font-black uppercase text-white no-underline">
-          <span className="grid h-11 w-11 place-items-center rounded-[10px] bg-gradient-to-br from-pillar-cyan to-pillar-blue text-sm shadow-blue">
-            DP
-          </span>
-          <span>Digital Pillars</span>
+    <header
+      data-testid="site-header"
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
+        scrolled
+          ? 'border-white10 bg-[#050506]70 backdrop-blur-xl'
+          : 'border-transparent bg-transparent'
+      }`}
+    >
+      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
+        <Link
+          href="/"
+          data-testid="logo-link"
+          className="flex items-center gap-2 font-display text-lg text-white"
+        >
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#D3FF24]" />
+          Digital Pillars
         </Link>
 
-        <button
-          ref={buttonRef}
-          className="grid h-11 w-11 place-items-center rounded-lg border border-white/20 md:hidden"
-          type="button"
-          aria-expanded={isOpen}
-          aria-controls="primary-menu"
-          onClick={() => setIsOpen((value) => !value)}
-        >
-          <span className="sr-only">Toggle navigation</span>
-          <span className="grid gap-1.5" aria-hidden="true">
-            <span className="block h-0.5 w-5 bg-white" />
-            <span className="block h-0.5 w-5 bg-white" />
-            <span className="block h-0.5 w-5 bg-white" />
-          </span>
-        </button>
-
-        <ul
-          ref={menuRef}
-          id="primary-menu"
-          className={`absolute left-4 right-4 top-[78px] flex-col items-stretch gap-1 rounded-lg border border-white/10 bg-navy-950 p-3 shadow-lift md:static md:flex md:flex-row md:items-center md:border-0 md:bg-transparent md:p-0 md:shadow-none ${
-            isOpen ? "flex" : "hidden md:flex"
-          }`}
-        >
-          {navItems.map((item) => {
-            const isActive =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive ? "page" : undefined}
-                  onClick={() => setIsOpen(false)}
-                  className="flex min-h-11 items-center justify-center rounded-lg px-4 py-2 font-bold text-blue-100 no-underline hover:bg-pillar-blue/15 hover:text-white aria-[current=page]:bg-pillar-blue/15 aria-[current=page]:text-white"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-          <li>
+        <nav className="hidden items-center gap-9 md:flex">
+          {NAV.map((n) => (
             <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="mt-2 flex min-h-11 items-center justify-center rounded-lg bg-pillar-blue px-5 py-2 font-extrabold text-white no-underline shadow-blue hover:bg-[#2f86ff] md:ml-4 md:mt-0"
+              key={n.to}
+              href={n.to}
+              data-testid={`nav-${n.label.toLowerCase()}`}
+              className={`link-underline text-sm tracking-wide transition-colors ${
+                pathname === n.to
+                  ? 'text-[#D3FF24]'
+                  : 'text-white/70 hover:text-white'
+              }`}
             >
-              Book Consultation
+              {n.label}
             </Link>
-          </li>
-        </ul>
-      </nav>
+          ))}
+        </nav>
+
+        <div className="hidden md:block">
+          <CtaButton href="contact" testId="header-cta" className="px-6 py-3">
+            Book a call
+          </CtaButton>
+        </div>
+
+        <button
+          data-testid="mobile-menu-toggle"
+          aria-label="Toggle menu"
+          onClick={() => setOpen((v) => !v)}
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-white15 text-white md:hidden"
+        >
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            data-testid="mobile-menu"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-t border-white10 bg-[#050506]95 backdrop-blur-xl md:hidden"
+          >
+            <div className="flex flex-col gap-1 px-6 py-6">
+              {NAV.map((n) => (
+                <Link
+                  key={n.to}
+                  href={n.to}
+                  data-testid={`mobile-nav-${n.label.toLowerCase()}`}
+                  className={
+                    pathname === n.to
+                      ? 'text-[#D3FF24]'
+                      : 'text-white70 hover:text-white'
+                  }
+                >
+                  {n.label}
+                </Link>
+              ))}
+              <CtaButton
+                href="contact"
+                testId="mobile-header-cta"
+                className="mt-4 w-full justify-center"
+              >
+                Book a call
+              </CtaButton>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

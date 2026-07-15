@@ -1,127 +1,152 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { PageShell } from "@/components/PageShell";
-import { SectionHeading } from "@/components/SectionHeading";
-import { services } from "@/lib/content";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Explore Digital Pillars services: web design, software, AI automation and digital strategy for UK local businesses.",
-};
+import { KineticHeadline, Reveal } from '@/components/Reveal';
+import { FinalCta } from '@/components/FinalCta';
+import { useSeo } from '@/hooks/useSeo';
+import { SERVICES, STEPS, FAQS } from '@/lib/content';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+import { Check } from 'lucide-react';
 
-const serviceDetails = [
-  {
-    title: "Websites and landing pages built for local enquiries",
-    eyebrow: "Web Design & Development",
-    text: "We create or improve the pages that matter most: service pages, location pages, FAQs, proof sections and enquiry paths.",
-    items: [
-      "WordPress websites, custom websites and landing pages",
-      "Redesigns, SEO-friendly builds and buyer FAQs",
-      "Performance optimisation, maintenance and clearer forms",
-      "Website reviews and page recommendations",
-    ],
-  },
-  {
-    title: "Business tools for teams outgrowing spreadsheets",
-    eyebrow: "Software & Web Applications",
-    text: "We build practical tools that match your workflow: dashboards, client portals, booking systems, internal tools and database-driven applications.",
-    items: [
-      "Dashboards, client portals and booking systems",
-      "Workflow systems and business tools",
-      "Database-driven apps and API integrations",
-      "SaaS MVP planning and development",
-    ],
-  },
-  {
-    title: "Automation that helps your team respond faster",
-    eyebrow: "AI & Automation",
-    text: "We use AI and automation to support the parts of the sales journey that slow teams down: triage, routing, reminders and reporting.",
-    items: [
-      "Lead qualification and routing workflows",
-      "Automated email responses and WhatsApp integrations",
-      "CRM automation, booking automation and reminders",
-      "Form-to-database workflows and process automation",
-    ],
-  },
-  {
-    title: "Clear digital direction before you commit to build work",
-    eyebrow: "Consulting & Strategy",
-    text: "We help you decide what is worth building, improving or automating first, with recommendations that fit your team, tools and budget.",
-    items: [
-      "Website audits and practical digital advice",
-      "Digital transformation planning",
-      "Platform recommendations and user journey mapping",
-      "Automation roadmaps and MVP planning",
-    ],
-  },
-] as const;
+export default function Services() {
+  useSeo({
+    title: 'Services | Web Design, Software & AI — Digital Pillars Manchester',
+    description:
+      'Website design & development, web applications, digital strategy and AI automation from Digital Pillars, a Manchester software and web design agency.',
+  });
 
-export default function ServicesPage() {
   return (
-    <PageShell>
-      <section className="section bg-[radial-gradient(circle_at_80%_20%,rgba(11,107,255,0.26),transparent_30%),linear-gradient(135deg,#020b1d,#041a3a)] text-white">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">Services</p>
-          <h1 className="text-5xl font-black leading-tight text-white md:text-6xl">
-            Websites, applications and automations built around your business.
-          </h1>
-          <p className="mt-5 text-lg text-blue-100">
-            Digital Pillars helps local businesses improve their online presence,
-            capture more enquiries and reduce the manual work that slows teams down.
+    <div data-testid="services-page">
+      {/* HERO */}
+      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24 md:pt-52">
+        <p className="overline text-[#D3FF24]">Services</p>
+        <h1 className="mt-6 max-w-5xl font-display text-[12vw] leading-[0.9] sm:text-[9vw] lg:text-[7vw]">
+          <KineticHeadline lines={['Everything you need', 'to win online.']} />
+        </h1>
+        <Reveal delay={0.4}>
+          <p className="mt-10 max-w-2xl text-lg text-white/70">
+            Four connected disciplines that take you from idea to impact —
+            strategy, design, engineering and automation under one Manchester
+            roof.
           </p>
+        </Reveal>
+      </section>
+
+      {/* DETAILED SERVICE LIST */}
+      <section
+        data-testid="services-detail"
+        className="border-t border-white/10"
+      >
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          {SERVICES.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Reveal key={s.id}>
+                <div
+                  id={s.id}
+                  className="grid grid-cols-1 gap-8 border-b border-white/10 py-16 md:grid-cols-12 md:gap-10 md:py-24"
+                >
+                  <div className="md:col-span-1">
+                    <span className="font-display text-3xl text-stroke">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <div className="md:col-span-5">
+                    <Icon
+                      className="mb-6 h-9 w-9 text-[#D3FF24]"
+                      strokeWidth={1.4}
+                    />
+                    <h2 className="font-display text-3xl leading-tight md:text-4xl">
+                      {s.title}
+                    </h2>
+                    <p className="mt-5 text-white/60 md:text-lg">{s.long}</p>
+                  </div>
+                  <div className="md:col-span-6">
+                    <ul className="grid grid-cols-1 gap-px overflow-hidden rounded border border-white/10 bg-white/10 sm:grid-cols-2">
+                      {s.points.map((p) => (
+                        <li
+                          key={p}
+                          className="flex items-center gap-3 bg-[#050506] p-5 text-white/80"
+                        >
+                          <Check className="h-4 w-4 shrink-0 text-[#D3FF24]" />{' '}
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
-      <section className="section">
-        <div className="container-page grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <article className="card p-6" key={service.title}>
-              <span className={`mb-4 grid h-13 w-13 place-items-center rounded-[10px] ${service.tone} font-black text-white`}>
-                {service.icon}
-              </span>
-              <h2 className="text-xl font-black">{service.title}</h2>
-              <p>{service.description}</p>
-            </article>
+      {/* HOW IT WORKS */}
+      <section
+        data-testid="services-process"
+        className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32"
+      >
+        <Reveal className="mb-14">
+          <p className="overline text-[#D3FF24]">How it works</p>
+          <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+            A process built for momentum.
+          </h2>
+        </Reveal>
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded border border-white/10 bg-white/10 md:grid-cols-4">
+          {STEPS.map((step, i) => (
+            <Reveal key={step.no} delay={i * 0.08}>
+              <div className="h-full bg-[#050506] p-8 md:p-10">
+                <span className="font-display text-5xl text-stroke md:text-6xl">
+                  {step.no}
+                </span>
+                <h3 className="mt-10 font-display text-2xl">{step.title}</h3>
+                <p className="mt-4 text-white/55">{step.body}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="section bg-pillar-soft">
-        <div className="container-page grid gap-6">
-          {serviceDetails.map((item) => (
-            <article className="card grid gap-8 p-8 lg:grid-cols-[0.85fr_1.15fr]" key={item.title}>
-              <div>
-                <p className="eyebrow">{item.eyebrow}</p>
-                <h2 className="text-3xl font-black leading-tight">{item.title}</h2>
-              </div>
-              <div>
-                <p className="text-lg">{item.text}</p>
-                <ul className="mt-5 grid gap-2">
-                  {item.items.map((feature) => (
-                    <li className="flex gap-3" key={feature}>
-                      <span className="font-black text-pillar-blue">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))}
+      {/* FAQ */}
+      <section data-testid="services-faq" className="border-t border-white/10">
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
+            <Reveal className="md:col-span-4">
+              <p className="overline text-[#D3FF24]">FAQ</p>
+              <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
+                Questions, answered.
+              </h2>
+            </Reveal>
+            <div className="md:col-span-8">
+              <Accordion className="w-full">
+                {FAQS.map((f, i) => (
+                  <AccordionItem
+                    key={i}
+                    value={`item-${i}`}
+                    className="border-white/10"
+                  >
+                    <AccordionTrigger
+                      data-testid={`faq-trigger-${i}`}
+                      className="py-6 text-left font-display text-xl text-white hover:text-[#D3FF24] hover:no-underline md:text-2xl"
+                    >
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6 text-white/60 md:text-lg">
+                      {f.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container-page card p-8 text-center md:p-12">
-          <SectionHeading
-            title="Want to know which service fits first?"
-            text="Share your current website and enquiry challenge. We will recommend a sensible starting point."
-          />
-          <Link className="button button-primary" href="/contact">
-            Ask for a recommendation
-          </Link>
-        </div>
-      </section>
-    </PageShell>
+      <FinalCta />
+    </div>
   );
 }

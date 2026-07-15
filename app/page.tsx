@@ -1,274 +1,270 @@
-import Link from "next/link";
-import { AiAssistant } from "@/components/AiAssistant";
-import { HeroShowcase } from "@/components/HeroShowcase";
-import { PageShell } from "@/components/PageShell";
-import { SectionHeading } from "@/components/SectionHeading";
-import { featuredWork, packages, processSteps, sectors, services } from "@/lib/content";
+'use client';
 
-export default function HomePage() {
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import Link from 'next/link';
+import { ArrowUpRight, Star } from 'lucide-react';
+import { Reveal, KineticHeadline } from '@/components/Reveal';
+import { CtaButton } from '@/components/CtaButton';
+import { Marquee } from '@/components/Marquee';
+import { FinalCta } from '@/components/FinalCta';
+import { useSeo } from '@/hooks/useSeo';
+import { SERVICES, BENEFITS, TESTIMONIALS, INDUSTRIES } from '@/lib/content';
+
+const HERO_IMG =
+  'https://images.unsplash.com/photo-1487958449943-2429e8be8625?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600';
+
+export default function Home() {
+  useSeo({
+    title: 'Digital Pillars | Web Design & Software Agency Manchester',
+    description:
+      'Digital Pillars is a Manchester web design and software agency building websites, web apps, digital strategy and AI automation for ambitious businesses.',
+  });
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
+  const overlay = useTransform(scrollYProgress, [0, 1], [0.4, 0.8]);
+
   return (
-    <PageShell>
-      <section className="overflow-hidden bg-[radial-gradient(circle_at_70%_35%,rgba(11,107,255,0.38),transparent_28%),radial-gradient(circle_at_16%_18%,rgba(18,200,255,0.16),transparent_25%),linear-gradient(135deg,#020814_0%,#031533_58%,#021023_100%)] py-16 text-white md:py-24">
-        <div className="container-page grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr]">
-          <div>
-            <h1 className="max-w-[13ch] text-5xl font-black leading-tight text-white md:text-7xl">
-              Websites, Software & Digital Systems Built for{" "}
-              <span className="text-[#2f86ff]">Business Growth</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-blue-100">
-              Digital Pillars helps local businesses modernise their online presence
-              with high-performing websites, custom web applications, practical AI
-              automation and clear digital consulting.
-            </p>
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link className="button button-primary" href="/contact">
-                Book a Free Consultation
-              </Link>
-              <Link className="button button-secondary" href="/work">
-                View Our Work
-              </Link>
-            </div>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <div className="flex" aria-hidden="true">
-                {Array.from({ length: 4 }, (_, index) => (
-                  <span
-                    key={index}
-                    className="-ml-2 h-9 w-9 rounded-full border-2 border-white bg-gradient-to-br from-amber-200 to-blue-300 first:ml-0"
-                  />
-                ))}
-              </div>
-              <div>
-                <div className="font-black text-yellow-300" aria-label="Five star rating">
-                  ★★★★★
-                </div>
-                <p className="m-0 text-sm leading-snug text-blue-100">
-                  Trusted by growing local businesses across the UK
-                </p>
-              </div>
-            </div>
-          </div>
-          <HeroShowcase />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container-page">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-            <div>
-              <p className="eyebrow">Your digital partner for growth</p>
-              <h2 className="text-4xl font-black leading-tight md:text-5xl">
-                More Than a Website. A Digital Advantage.
-              </h2>
-              <p className="mt-5 text-lg text-pillar-text">
-                We design and build digital solutions that help you attract more
-                customers, capture enquiries, automate manual tasks and deliver a
-                better online experience.
-              </p>
-              <ul className="mt-6 grid gap-3">
-                {[
-                  "Strategy-led approach",
-                  "Bespoke solutions for your business",
-                  "Built for performance and growth",
-                  "Ongoing support and optimisation",
-                ].map((item) => (
-                  <li key={item} className="flex gap-3">
-                    <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-blue-50 text-sm font-black text-pillar-blue">
-                      ✓
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div
-              className="min-h-[355px] rounded-[10px] bg-[radial-gradient(circle_at_28%_35%,#173b67_0_7%,transparent_8%),radial-gradient(circle_at_52%_30%,#1d5b8f_0_8%,transparent_9%),radial-gradient(circle_at_73%_37%,#18395e_0_7%,transparent_8%),linear-gradient(145deg,rgba(2,11,29,0.08),rgba(2,11,29,0.16)),linear-gradient(135deg,#cfe0f5,#f6fafc)] shadow-lift"
-              role="img"
-              aria-label="Digital Pillars team planning a website and digital system"
-            />
-          </div>
-
-          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {services.map((service) => (
-              <article className="card p-6" key={service.title}>
-                <span
-                  className={`mb-4 grid h-13 w-13 place-items-center rounded-[10px] ${service.tone} font-black text-white`}
-                  aria-hidden="true"
-                >
-                  {service.icon}
-                </span>
-                <h3 className="text-xl font-black">{service.title}</h3>
-                <p className="mt-4 text-pillar-text">{service.description}</p>
-                <Link className="mt-4 inline-flex font-black text-pillar-blue no-underline after:ml-2 after:content-['→']" href="/services">
-                  Learn more
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-pillar-soft">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="Who we help"
-            title="We Work With Businesses That Want to Grow"
+    <div data-testid="home-page">
+      {/* HERO */}
+      <section
+        ref={heroRef}
+        className="relative flex min-h-screen items-end overflow-hidden"
+      >
+        <motion.div style={{ y }} className="absolute inset-0 z-0">
+          <img
+            src={HERO_IMG}
+            alt="Abstract dark architecture representing digital foundations"
+            className="h-[128%] w-full object-cover"
           />
-          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-9">
-            {sectors.map(([icon, label]) => (
-              <article className="card grid min-h-24 place-items-center p-3 text-center text-sm font-extrabold text-pillar-ink" key={label}>
-                <span className="grid h-9 w-9 place-items-center rounded-lg bg-blue-50 text-pillar-blue" aria-hidden="true">
-                  {icon}
-                </span>
-                {label}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+        </motion.div>
+        <motion.div
+          style={{ opacity: overlay }}
+          className="absolute inset-0 z-0 bg-[#050506]"
+        />
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-[#050506] via-[#050506]/40 to-transparent" />
 
-      <section className="section">
-        <div className="container-page">
-          <SectionHeading eyebrow="Packages" title="Simple Packages. Real Results." />
-          <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((item) => (
-              <article
-                key={item.title}
-                className={`card relative p-8 ${item.featured ? "border-emerald-200 bg-gradient-to-br from-emerald-50 to-white shadow-[0_20px_60px_rgba(25,185,133,0.15)]" : ""} ${item.purple ? "bg-gradient-to-br from-purple-50 to-white" : ""}`}
-              >
-                {item.featured ? (
-                  <span className="absolute right-6 top-0 rounded-b-lg bg-pillar-green px-3 py-1 text-xs font-black uppercase text-white">
-                    Popular
-                  </span>
-                ) : null}
-                <h3 className="text-2xl font-black">{item.title}</h3>
-                <p>{item.intro}</p>
-                <p className="mt-6 text-4xl font-black leading-none text-pillar-ink">
-                  <small className="mb-1 block text-sm font-bold text-pillar-muted">
-                    {item.priceLabel}
-                  </small>
-                  {item.price}
-                </p>
-                <ul className="mt-6 grid gap-2">
-                  {item.items.map((feature) => (
-                    <li key={feature} className="flex gap-2">
-                      <span className="font-black text-pillar-blue">✓</span>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link className="button button-primary mt-6 w-full" href="/contact">
-                  {item.cta}
-                </Link>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-pillar-soft">
-        <div className="container-page">
-          <SectionHeading eyebrow="Featured work" title="Solutions We’re Proud Of" />
-          <div className="grid gap-5 md:grid-cols-3 xl:grid-cols-6">
-            {featuredWork.map((item) => (
-              <article className="card overflow-hidden" key={item.title}>
-                <div className={`min-h-36 bg-gradient-to-br ${item.thumb}`} />
-                <div className="p-4">
-                  <h3 className="text-base font-black">{item.title}</h3>
-                  <p className="m-0 text-sm font-bold text-pillar-muted">{item.category}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="mt-8 flex justify-center">
-            <Link className="button button-light" href="/work">
-              View All Projects
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-[radial-gradient(circle_at_18%_18%,rgba(11,107,255,0.22),transparent_34%),radial-gradient(circle_at_86%_34%,rgba(18,200,255,0.16),transparent_28%),linear-gradient(135deg,#020b1d,#041a3a)] text-white">
-        <div className="container-page">
-          <SectionHeading eyebrow="Our process" title="A Clear Process. Better Outcomes." inverse />
-          <ol className="grid gap-0 md:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map((step, index) => (
-              <li className="border-white/15 p-6 md:border-l" key={step.title}>
-                <span className="mb-4 grid h-9 w-9 place-items-center rounded-full bg-pillar-blue font-black text-white">
-                  {index + 1}
-                </span>
-                <h3 className="text-xl font-black text-white">{step.title}</h3>
-                <p className="text-blue-100">{step.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section className="section bg-gradient-to-br from-blue-50 to-white">
-        <div className="container-page grid items-center gap-10 lg:grid-cols-[1fr_0.85fr]">
-          <div>
-            <p className="eyebrow">AI enquiry assistant</p>
-            <h2 className="text-4xl font-black leading-tight md:text-5xl">
-              Reply faster without adding more admin.
-            </h2>
-            <p className="mt-5 text-lg">
-              A practical AI enquiry assistant can answer common questions, capture
-              contact details, qualify leads and send the right information to your
-              team.
+        <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
+          <Reveal y={0} delay={0.2}>
+            <p className="overline text-[#D3FF24]">
+              Digital Agency · Manchester, UK
             </p>
-          </div>
-          <AiAssistant />
+          </Reveal>
+          <h1 className="mt-6 font-display text-[13vw] leading-[0.95] tracking-tight text-white sm:text-[10vw] lg:text-[7.6vw]">
+            {' '}
+            <KineticHeadline
+              delay={0.35}
+              lines={['We build the', 'digital pillars', 'your business']}
+            />
+            <span className="block overflow-hidden">
+              <motion.span
+                className="block text-[#D3FF24]"
+                initial={{ y: '110%' }}
+                animate={{ y: '0%' }}
+                transition={{
+                  duration: 1,
+                  delay: 0.35 + 3 * 0.12,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                stands on.
+              </motion.span>
+            </span>
+          </h1>
+
+          <Reveal
+            delay={1}
+            className="mt-10 flex flex-col items-start gap-8 md:flex-row md:items-end md:justify-between"
+          >
+            <p className="max-w-md text-lg text-white/70">
+              Websites, software, strategy and AI automation — engineered to
+              beat your competitors and win you more leads.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <CtaButton href="/contact" testId="hero-book-call">
+                Book a call
+              </CtaButton>
+              <CtaButton
+                href="/listings"
+                testId="hero-see-work"
+                variant="secondary"
+              >
+                See our work
+              </CtaButton>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <section className="section bg-pillar-soft">
-        <div className="container-page max-w-3xl">
-          <SectionHeading eyebrow="FAQ" title="Common Questions" />
-          <div className="grid gap-3">
-            {[
-              [
-                "Do we need a brand new website?",
-                "Not always. If your current website is a good base, we can improve the pages, forms, speed and follow-up instead of rebuilding everything.",
-              ],
-              [
-                "What does AI automation mean for my business?",
-                "It usually means using simple systems to answer common questions, capture enquiries, send follow-up messages and update your tools automatically.",
-              ],
-              [
-                "Can you work with small local businesses?",
-                "Yes. The packages are designed for owner-led businesses and small teams that need practical help, clear communication and sensible costs.",
-              ],
-              [
-                "What happens after I enquire?",
-                "We review your goals, website and current process, then recommend a clear next step such as an audit, website project or automation build.",
-              ],
-            ].map(([question, answer]) => (
-              <details className="rounded-lg border border-pillar-line bg-white" key={question}>
-                <summary className="cursor-pointer p-4 font-black text-pillar-ink">
-                  {question}
-                </summary>
-                <p className="px-4 pb-4 text-pillar-muted">{answer}</p>
-              </details>
+      {/* TRUST STRIP */}
+      <Marquee testId="home-marquee" />
+      <section className="mx-auto max-w-[1400px] px-6 py-14 md:px-10">
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <p className="overline text-white/40">Trusted across industries</p>
+          <div className="flex flex-wrap gap-x-8 gap-y-3">
+            {INDUSTRIES.map((i) => (
+              <span key={i} className="text-white/60">
+                {i}
+              </span>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
-        <div className="container-page card p-8 text-center md:p-12">
-          <p className="eyebrow">Ready to grow?</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-black md:text-5xl">
-            Let’s build a better digital system for your business.
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg">
-            Book a free consultation and we’ll help you identify the most useful
-            next step for your website, enquiries or internal systems.
-          </p>
-          <Link className="button button-primary mt-6" href="/contact">
-            Book a Free Consultation
-          </Link>
+      {/* MANIFESTO / BENEFITS */}
+      <section data-testid="home-benefits" className="border-t border-white/10">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          {BENEFITS.map((b, i) => (
+            <Reveal key={b.no}>
+              <div
+                className={`grid grid-cols-1 gap-6 border-b border-white/10 py-14 md:grid-cols-12 md:gap-10 md:py-20 ${i === 0 ? 'border-t-0' : ''}`}
+              >
+                <div className="md:col-span-3">
+                  <span className="font-display text-6xl text-stroke md:text-7xl">
+                    {b.no}
+                  </span>
+                </div>
+                <h3 className="font-display text-3xl leading-tight md:col-span-5 md:text-4xl">
+                  {b.title}
+                </h3>
+                <p className="text-white/60 md:col-span-4 md:text-lg">
+                  {b.body}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
-    </PageShell>
+
+      {/* SERVICES PREVIEW - BENTO */}
+      <section
+        data-testid="home-services"
+        className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32"
+      >
+        <Reveal className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="overline text-[#D3FF24]">What we do</p>
+            <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+              Four services, one obsession: results.
+            </h2>
+          </div>
+          <Link
+            href="/services"
+            data-testid="services-view-all"
+            className="link-underline shrink-0 text-white/70 hover:text-white"
+          >
+            View all services
+          </Link>
+        </Reveal>
+
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded border border-white/10 bg-white/10 md:grid-cols-2">
+          {SERVICES.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <Reveal key={s.id} delay={i * 0.06}>
+                <Link
+                  href="/services"
+                  data-testid={`home-service-${s.id}`}
+                  className="group flex h-full flex-col justify-between bg-[#050506] p-8 transition-colors duration-500 hover:bg-[#0c0c0d] md:p-12"
+                >
+                  <div className="flex items-start justify-between">
+                    <Icon
+                      className="h-8 w-8 text-[#D3FF24]"
+                      strokeWidth={1.4}
+                    />
+                    <ArrowUpRight className="h-6 w-6 text-white/30 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#D3FF24]" />
+                  </div>
+                  <div className="mt-16">
+                    <h3 className="font-display text-2xl md:text-3xl">
+                      {s.title}
+                    </h3>
+                    <p className="mt-4 max-w-md text-white/55">{s.short}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section
+        data-testid="home-testimonials"
+        className="border-y border-white/10 bg-[#0a0a0b]"
+      >
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <Reveal>
+            <div className="mb-4 flex gap-1 text-[#D3FF24]">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="h-5 w-5 fill-[#D3FF24]" />
+              ))}
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-10">
+            {TESTIMONIALS.map((t, i) => (
+              <Reveal key={t.name} delay={i * 0.1}>
+                <figure>
+                  <blockquote className="font-display text-2xl leading-snug text-white md:text-[1.7rem]">
+                    "{t.quote}"
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-white/10 pt-5">
+                    <span className="block text-white">{t.name}</span>
+                    <span className="block text-sm text-white/50">
+                      {t.role}
+                    </span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT PREVIEW */}
+      <section
+        data-testid="home-about"
+        className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32"
+      >
+        <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
+          <Reveal>
+            <div className="overflow-hidden rounded border border-white/10">
+              <motion.img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=srgb&fm=jpg&q=85&w=1100"
+                alt="Digital Pillars studio workspace in Manchester"
+                className="aspect-[4/3] w-full object-cover"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="overline text-[#D3FF24]">Who we are</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
+              A Manchester studio with a builder&apos;s mindset.
+            </h2>
+            <p className="mt-6 text-lg text-white/60">
+              We&apos;re a tight-knit team of designers, engineers and
+              strategists. No bloated account layers, no jargon — just senior
+              people who care about your outcomes as much as you do.
+            </p>
+            <div className="mt-10">
+              <CtaButton
+                href="/about"
+                testId="home-about-cta"
+                variant="secondary"
+              >
+                Our story
+              </CtaButton>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <FinalCta />
+    </div>
   );
 }

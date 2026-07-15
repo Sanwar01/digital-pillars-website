@@ -1,101 +1,180 @@
-import type { Metadata } from "next";
-import { PageShell } from "@/components/PageShell";
-import { SectionHeading } from "@/components/SectionHeading";
+'use client';
 
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "About Digital Pillars, a digital partner helping UK local businesses improve websites, software and enquiry operations.",
-};
+import { motion } from 'framer-motion';
+import { Target, Eye, Handshake, Zap } from 'lucide-react';
+import { Reveal, KineticHeadline } from '@/components/Reveal';
+import { FinalCta } from '@/components/FinalCta';
+import { useSeo } from '@/hooks/useSeo';
+import { INDUSTRIES } from '@/lib/content';
 
-export default function AboutPage() {
+const DIFFERENTIATORS = [
+  {
+    icon: Target,
+    title: 'Outcome-obsessed',
+    body: 'We tie every decision to a business result — leads, revenue, efficiency — not vanity metrics.',
+  },
+  {
+    icon: Zap,
+    title: 'Senior, fast, hands-on',
+    body: 'You work directly with the people building your project. No hand-offs, no telephone game.',
+  },
+  {
+    icon: Handshake,
+    title: 'Radically transparent',
+    body: 'Fixed quotes, honest timelines and plain English. You always know where things stand.',
+  },
+  {
+    icon: Eye,
+    title: 'Design that competes',
+    body: "Award-level craft as standard. Your brand should look like the leader you're becoming.",
+  },
+];
+
+export default function About() {
+  useSeo({
+    title: 'About | Digital Pillars — Web Design Agency Manchester',
+    description:
+      'Meet Digital Pillars, a Manchester-based web design and software agency helping estate agents, charities, startups, energy and housing businesses grow.',
+  });
+
   return (
-    <PageShell>
-      <section className="section bg-[radial-gradient(circle_at_80%_20%,rgba(11,107,255,0.26),transparent_30%),linear-gradient(135deg,#020b1d,#041a3a)] text-white">
-        <div className="container-page max-w-3xl">
-          <p className="eyebrow">About</p>
-          <h1 className="text-5xl font-black leading-tight text-white md:text-6xl">
-            Digital Pillars helps local businesses make better use of the web.
-          </h1>
-          <p className="mt-5 text-lg text-blue-100">
-            A good digital setup should help people find you, trust you and contact
-            you. It should also make life easier for the team handling those
-            enquiries.
+    <div data-testid="about-page">
+      {/* HERO */}
+      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24 md:pt-52">
+        <p className="overline text-[#D3FF24]">About Digital Pillars</p>
+        <h1 className="mt-6 max-w-5xl font-display text-[12vw] leading-[0.9] sm:text-[9vw] lg:text-[7vw]">
+          <KineticHeadline lines={['Foundations for', 'ambitious brands.']} />
+        </h1>
+        <Reveal
+          delay={0.4}
+          className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-20"
+        >
+          <p className="text-lg text-white/70">
+            Digital Pillars started with a simple frustration: too many agencies
+            over-promise, over-charge and under-deliver. We set out to be the
+            opposite — a Manchester studio that treats your business like our
+            own.
           </p>
-        </div>
+          <p className="text-lg text-white/70">
+            Today we design and build websites, software and AI-powered
+            automation for organisations that refuse to blend in. From estate
+            agents to charities and energy innovators, our work shares one
+            thing: it performs.
+          </p>
+        </Reveal>
       </section>
 
-      <section className="section">
-        <div className="container-page grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
-          <div>
-            <p className="eyebrow">Our approach</p>
-            <h2 className="text-4xl font-black leading-tight md:text-5xl">
-              We build around your customers, not a tool list.
-            </h2>
-          </div>
-          <div className="space-y-5 text-lg">
-            <p>
-              Digital Pillars works with UK local businesses that need better
-              enquiries, clearer positioning and less operational drag. We look at how
-              people find you, what they need before contacting you and what happens
-              after they do.
-            </p>
-            <p>
-              The result is a practical roadmap across website, software, content and
-              automation. Every recommendation should be explainable in commercial
-              terms and usable by the people running the business day to day.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-pillar-soft">
-        <div className="container-page">
-          <SectionHeading eyebrow="Principles" title="How we make decisions" />
-          <div className="grid gap-5 md:grid-cols-3">
-            {[
-              [
-                "Plain language first",
-                "Clients should understand what is being built, why it matters and how it will be maintained.",
-              ],
-              [
-                "Use AI where it fits",
-                "AI is most useful when it improves speed, consistency or insight. It is not a substitute for a strong offer.",
-              ],
-              [
-                "Measure behaviour",
-                "We pay attention to enquiries, conversion points and operational time saved, not vanity metrics alone.",
-              ],
-            ].map(([title, text]) => (
-              <article className="card p-6" key={title}>
-                <h2 className="text-xl font-black">{title}</h2>
-                <p>{text}</p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container-page max-w-3xl">
-          <h2 className="text-4xl font-black">Who we are a strong fit for</h2>
-          <ul className="mt-6 grid gap-3">
-            {[
-              "Local service businesses that rely on enquiries, consultations, quotes or appointments.",
-              "Teams with an existing website that is not converting enough of the right visitors.",
-              "Businesses receiving leads from several channels without a consistent follow-up process.",
-              "Owners who want practical AI support without unnecessary complexity.",
-            ].map((item) => (
-              <li className="flex gap-3" key={item}>
-                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-blue-50 text-sm font-black text-pillar-blue">
-                  ✓
+      {/* STATS / MISSION */}
+      <section className="border-y border-white/10 bg-[#0a0a0b]">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
+          {[
+            { k: '60+', v: 'Projects delivered' },
+            { k: '5', v: 'Core industries served' },
+            { k: '100%', v: 'UK-based team' },
+            { k: '4.9★', v: 'Average client rating' },
+          ].map((s, i) => (
+            <Reveal key={s.v} delay={i * 0.05}>
+              <div className="bg-[#0a0a0b] p-8 md:p-12">
+                <span className="font-display text-4xl text-[#D3FF24] md:text-6xl">
+                  {s.k}
                 </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+                <p className="mt-3 text-sm text-white/55">{s.v}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
-    </PageShell>
+
+      {/* MISSION STATEMENT */}
+      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+          <Reveal className="md:col-span-4">
+            <p className="overline text-[#D3FF24]">Our mission</p>
+          </Reveal>
+          <Reveal delay={0.1} className="md:col-span-8">
+            <p className="font-display text-3xl leading-tight md:text-5xl">
+              To give every client an unfair advantage online — through design
+              that demands attention and technology that quietly does the heavy
+              lifting.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* WHAT MAKES US DIFFERENT */}
+      <section
+        data-testid="about-difference"
+        className="border-t border-white/10"
+      >
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <Reveal className="py-14">
+            <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+              What makes us different
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
+            {DIFFERENTIATORS.map((d, i) => {
+              const Icon = d.icon;
+              return (
+                <Reveal key={d.title} delay={i * 0.06}>
+                  <div className="h-full bg-[#050506] p-8 md:p-12">
+                    <Icon
+                      className="h-8 w-8 text-[#D3FF24]"
+                      strokeWidth={1.4}
+                    />
+                    <h3 className="mt-8 font-display text-2xl">{d.title}</h3>
+                    <p className="mt-4 text-white/55">{d.body}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* OFFICE PHOTOS */}
+      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
+          {[
+            {
+              src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=srgb&fm=jpg&q=85&w=1100',
+              alt: 'Modern meeting room at Digital Pillars Manchester',
+              cls: 'md:mt-16',
+            },
+            {
+              src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop=entropy&cs=srgb&fm=jpg&q=85&w=1100',
+              alt: 'Design team collaborating on a project',
+            },
+          ].map((img, i) => (
+            <Reveal key={i} delay={i * 0.1} className={img.cls || ''}>
+              <div className="overflow-hidden rounded border border-white/10">
+                <motion.img
+                  src={img.src}
+                  alt={img.alt}
+                  className="aspect-[4/5] w-full object-cover md:aspect-[4/3]"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="mt-16">
+          <p className="overline text-white/40">Industries we serve</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {INDUSTRIES.map((i) => (
+              <span
+                key={i}
+                className="rounded-full border border-white/15 px-5 py-2 text-white/70"
+              >
+                {i}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      <FinalCta />
+    </div>
   );
 }

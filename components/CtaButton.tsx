@@ -21,8 +21,8 @@ export function CtaButton({
     'group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-[transform,background-color,color,box-shadow] duration-300 will-change-transform';
   const styles =
     variant === 'primary'
-      ? 'bg-[#D3FF24] text-[#050506] hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(211,255,36,0.35)]'
-      : 'border border-white/20 text-white hover:bg-white hover:text-[#050506] hover:scale-[1.03]';
+      ? 'bg-brand-gradient text-white hover:scale-[1.03] hover:shadow-brand-glow'
+      : 'border border-white/20 text-white hover:bg-white hover:text-brand-navy hover:scale-[1.03]';
   const cls = `${base} ${styles} ${className}`;
   const inner = (
     <>

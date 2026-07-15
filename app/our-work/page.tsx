@@ -7,30 +7,27 @@ import { ArrowUpRight } from 'lucide-react';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { FinalCta } from '@/components/FinalCta';
 import { useSeo } from '@/hooks/useSeo';
-import { PROJECTS, FILTERS } from '@/lib/content';
+import { ourWork } from '@/content/our-work';
 
 export default function Listings() {
-  useSeo({
-    title: 'Our Work | Portfolio — Digital Pillars Manchester',
-    description:
-      "Explore Digital Pillars' portfolio of websites, web apps and digital projects for estate agents, charities, startups, energy and housing associations in Manchester.",
-  });
-  const [filter, setFilter] = useState('All');
+  useSeo(ourWork.seo);
+  const [filter, setFilter] = useState<string>(ourWork.filters[0]);
   const projects =
-    filter === 'All' ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+    filter === 'All'
+      ? ourWork.projects
+      : ourWork.projects.filter((p) => p.category === filter);
 
   return (
     <div data-testid="listings-page">
       {/* HERO */}
       <section className="mx-auto max-w-[1400px] px-6 pb-12 pt-40 md:px-10 md:pb-16 md:pt-52">
-        <p className="overline text-[#D3FF24]">Selected work</p>
+        <p className="overline text-brand-cyan">{ourWork.hero.eyebrow}</p>
         <h1 className="mt-6 max-w-5xl font-display text-[12vw] leading-[0.9] sm:text-[9vw] lg:text-[7vw]">
-          <KineticHeadline lines={['Work that', 'moves the needle.']} />
+          <KineticHeadline lines={[...ourWork.hero.lines]} />
         </h1>
         <Reveal delay={0.4}>
           <p className="mt-10 max-w-2xl text-lg text-white/70">
-            A snapshot of recent projects across our core industries. Every
-            build is measured on the results it delivers.
+            {ourWork.hero.body}
           </p>
         </Reveal>
       </section>
@@ -41,14 +38,14 @@ export default function Listings() {
           data-testid="filter-bar"
           className="flex flex-wrap gap-3 border-y border-white/10 py-6"
         >
-          {FILTERS.map((f) => (
+          {ourWork.filters.map((f) => (
             <button
               key={f}
               data-testid={`filter-${f.toLowerCase().replace(/\s+/g, '-')}`}
               onClick={() => setFilter(f)}
               className={`rounded-full border px-5 py-2 text-sm transition-colors duration-300 ${
                 filter === f
-                  ? 'border-[#D3FF24] bg-[#D3FF24] text-[#050506]'
+                  ? 'border-brand-cyan bg-brand-gradient text-white'
                   : 'border-white/15 text-white/70 hover:border-white/40 hover:text-white'
               }`}
             >
@@ -96,7 +93,7 @@ export default function Listings() {
                         {p.type} · {p.year}
                       </p>
                     </div>
-                    <ArrowUpRight className="mt-1 h-6 w-6 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-[#D3FF24]" />
+                    <ArrowUpRight className="mt-1 h-6 w-6 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-cyan" />
                   </div>
                   <span className="mt-3 inline-block rounded-full border border-white/15 px-3 py-1 text-xs text-white/50">
                     {p.category}
@@ -112,7 +109,7 @@ export default function Listings() {
             data-testid="no-results"
             className="py-20 text-center text-white/50"
           >
-            No projects in this category yet — check back soon.
+            {ourWork.emptyState}
           </p>
         )}
       </section>

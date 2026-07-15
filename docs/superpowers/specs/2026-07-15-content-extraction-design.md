@@ -24,7 +24,7 @@ No CMS, Markdown, or i18n in this change.
 
 ## Folder layout
 
-```
+```tsx
 content/
   site.ts        # shared across pages and components
   home.ts
@@ -44,7 +44,7 @@ Imports use the existing `@/*` path alias, e.g. `@/content/home`, `@/content/sit
 Owns anything used by more than one page or by shared chrome:
 
 | Export | Consumers |
-|--------|-----------|
+| ------ | ---------- |
 | `SITE` (name, email, phone, address, tagline, socials) | Footer, Contact |
 | Nav + footer link lists | Header, Footer |
 | `SERVICES` | Home, Services, Contact, Marquee |
@@ -61,7 +61,7 @@ Legacy / unused exports currently in `lib/content.ts` (`services`, `sectors`, `p
 Each page file owns copy unique to that route, including lists only rendered on that page:
 
 | File | Contents |
-|------|----------|
+| ------ | ---------- |
 | `home.ts` | SEO; hero (eyebrow, headline lines, accent line, body, CTAs); `BENEFITS`; `TESTIMONIALS`; services-preview section headers/link label; about-preview (eyebrow, headline, body, CTA, image src/alt) |
 | `about.ts` | SEO; hero; stats; mission; differentiators (including icon imports); office images (src/alt); section headers |
 | `services.ts` | SEO; hero; `STEPS`; `FAQS`; process section headers; FAQ section headers |

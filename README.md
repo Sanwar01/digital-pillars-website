@@ -6,7 +6,7 @@ Next.js, TypeScript and Tailwind website for Digital Pillars, positioned as a di
 
 - `app/` - App Router entry, layout, metadata, robots and sitemap routes.
 - `components/` - reusable homepage sections and shared layout components.
-- `lib/content.ts` - typed content arrays for services, sectors, packages, work and process steps.
+- `content/` - editable site copy (`site.ts` for shared data, one file per page).
 - `app/globals.css` - Tailwind layers plus shared component classes.
 
 ## Local Development

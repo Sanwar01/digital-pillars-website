@@ -4,25 +4,28 @@
 
 @layer base {
     :root {
-        --background: 240 6% 2%;
+        --brand-cyan: #55ccff;
+        --brand-blue: #2b59ff;
+        --brand-navy: #0a1424;
+        --background: 216 55% 9%;
         --foreground: 0 0% 100%;
-        --card: 0 0% 4%;
+        --card: 216 45% 12%;
         --card-foreground: 0 0% 100%;
-        --popover: 0 0% 4%;
+        --popover: 216 45% 12%;
         --popover-foreground: 0 0% 100%;
-        --primary: 74 100% 57%;
-        --primary-foreground: 240 6% 2%;
-        --secondary: 0 0% 10%;
+        --primary: 224 100% 58%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 216 40% 14%;
         --secondary-foreground: 0 0% 100%;
-        --muted: 0 0% 7%;
-        --muted-foreground: 0 0% 53%;
-        --accent: 74 100% 57%;
-        --accent-foreground: 240 6% 2%;
+        --muted: 216 35% 16%;
+        --muted-foreground: 0 0% 65%;
+        --accent: 199 100% 67%;
+        --accent-foreground: 216 55% 9%;
         --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 98%;
         --border: 0 0% 100%;
-        --input: 0 0% 15%;
-        --ring: 74 100% 57%;
+        --input: 216 35% 18%;
+        --ring: 199 100% 67%;
         --radius: 0.25rem;
     }
 }
@@ -36,7 +39,7 @@
     }
     body {
         margin: 0;
-        background-color: #050506;
+        background-color: var(--brand-navy);
         color: #ffffff;
         font-weight: 300;
         -webkit-font-smoothing: antialiased;
@@ -44,8 +47,8 @@
         overflow-x: hidden;
     }
     ::selection {
-        background: #d3ff24;
-        color: #050506;
+        background: var(--brand-cyan);
+        color: var(--brand-navy);
     }
 }
 
@@ -63,7 +66,7 @@
 }
 
 .text-stroke {
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.28);
+    -webkit-text-stroke: 1px rgba(85, 204, 255, 0.35);
     color: transparent;
 }
 
@@ -72,14 +75,14 @@
     width: 9px;
 }
 ::-webkit-scrollbar-track {
-    background: #050506;
+    background: var(--brand-navy);
 }
 ::-webkit-scrollbar-thumb {
-    background: #222;
+    background: #1a2d4d;
     border-radius: 20px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #d3ff24;
+    background: var(--brand-blue);
 }
 
 /* Marquee */
@@ -120,7 +123,7 @@ html.lenis body {
 }
 
 .link-underline {
-    background-image: linear-gradient(#d3ff24, #d3ff24);
+    background-image: linear-gradient(var(--brand-cyan), var(--brand-cyan));
     background-size: 0% 1px;
     background-position: 0 100%;
     background-repeat: no-repeat;

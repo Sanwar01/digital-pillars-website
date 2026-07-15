@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { SITE } from '@/content/site';
 
 type LogoProps = {
   className?: string;
@@ -24,14 +25,14 @@ export function Logo({
     >
       <Image
         src="/favicon.png"
-        alt="Digital Pillars"
+        alt={SITE.name}
         width={iconSize}
         height={iconSize}
         className="shrink-0"
         priority
       />
       {showWordmark ? (
-        <span className={wordmarkClassName}>Digital Pillars</span>
+        <span className={wordmarkClassName}>{SITE.name}</span>
       ) : null}
     </Link>
   );

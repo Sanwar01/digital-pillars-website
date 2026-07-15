@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   description:
     'Digital Pillars builds websites, software and digital systems that help UK businesses get more enquiries, save time and grow.',
   metadataBase: new URL('https://digitalpillars.co.uk'),
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

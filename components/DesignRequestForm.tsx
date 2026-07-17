@@ -6,13 +6,13 @@ import { Loader2 } from 'lucide-react';
 import { CtaButton } from '@/components/CtaButton';
 import { EASE } from '@/components/Reveal';
 import {
-  concept,
-  type ConceptGoalId,
-  type ConceptRequest,
-} from '@/content/concept';
+  design,
+  type DesignGoalId,
+  type DesignRequest,
+} from '@/content/design';
 
-export function ConceptRequestForm() {
-  const [form, setForm] = useState<ConceptRequest>({
+export function DesignRequestForm() {
+  const [form, setForm] = useState<DesignRequest>({
     business: '',
     website: '',
     goal: null,
@@ -22,8 +22,8 @@ export function ConceptRequestForm() {
   const [submitting, setSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const update = (field: keyof ConceptRequest, value: string) =>
-    setForm((f) => ({ ...f, [field]: value }));
+  const update = (field: keyof DesignRequest, value: string) =>
+    setForm((f: DesignRequest) => ({ ...f, [field]: value }));
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export function ConceptRequestForm() {
       !form.name.trim() ||
       !form.email.includes('@')
     ) {
-      console.error(concept.form.validationMessage);
+      console.error(design.form.validationMessage);
       return;
     }
     setSubmitting(true);
@@ -46,7 +46,7 @@ export function ConceptRequestForm() {
   };
 
   return (
-    <div data-testid="concept-request-form" className="w-full">
+    <div data-testid="design-request-form" className="w-full">
       <AnimatePresence mode="wait">
         {sent ? (
           <motion.div
@@ -55,21 +55,21 @@ export function ConceptRequestForm() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35, ease: EASE }}
-            data-testid="concept-success"
+            data-testid="design-success"
           >
             <p className="overline text-brand-cyan">Sent</p>
             <h3 className="mt-4 font-display text-3xl md:text-4xl">
-              {concept.form.successTitle}
+              {design.form.successTitle}
             </h3>
             <p className="mt-5 max-w-xl text-lg text-white/60">
-              {concept.form.successBody}
+              {design.form.successBody}
             </p>
             <div className="mt-10">
               <CtaButton
-                href={concept.form.successCtaHref}
-                testId="concept-success-book-call"
+                href={design.form.successCtaHref}
+                testId="design-success-book-call"
               >
-                {concept.form.successCtaLabel}
+                {design.form.successCtaLabel}
               </CtaButton>
             </div>
           </motion.div>
@@ -85,18 +85,18 @@ export function ConceptRequestForm() {
           >
             <div>
               <label
-                htmlFor="concept-business"
+                htmlFor="design-business"
                 className="overline block text-white/40"
               >
-                {concept.form.businessLabel}
+                {design.form.businessLabel}
               </label>
               <input
-                id="concept-business"
-                data-testid="concept-business"
+                id="design-business"
+                data-testid="design-business"
                 required
                 value={form.business}
                 onChange={(e) => update('business', e.target.value)}
-                placeholder={concept.form.businessPlaceholder}
+                placeholder={design.form.businessPlaceholder}
                 className="mt-3 w-full border-b border-white/15 bg-transparent pb-3 text-lg text-white placeholder-white/25 outline-none transition-colors focus:border-brand-cyan"
               />
             </div>
@@ -106,30 +106,30 @@ export function ConceptRequestForm() {
                 htmlFor="concept-website"
                 className="overline block text-white/40"
               >
-                {concept.form.websiteLabel}
+                {design.form.websiteLabel}
               </label>
               <input
-                id="concept-website"
-                data-testid="concept-website"
+                id="design-website"
+                data-testid="design-website"
                 type="url"
                 value={form.website}
                 onChange={(e) => update('website', e.target.value)}
-                placeholder={concept.form.websitePlaceholder}
+                placeholder={design.form.websitePlaceholder}
                 className="mt-3 w-full border-b border-white/15 bg-transparent pb-3 text-lg text-white placeholder-white/25 outline-none transition-colors focus:border-brand-cyan"
               />
             </div>
 
             <div>
-              <p className="overline text-white/40">{concept.form.goalLabel}</p>
+              <p className="overline text-white/40">{design.form.goalLabel}</p>
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {concept.form.goals.map((g) => {
+                {design.form.goals.map((g) => {
                   const selected = form.goal === g.id;
                   return (
                     <button
                       key={g.id}
                       type="button"
-                      data-testid={`concept-goal-${g.id}`}
-                      onClick={() => update('goal', g.id as ConceptGoalId)}
+                      data-testid={`design-goal-${g.id}`}
+                      onClick={() => update('goal', g.id as DesignGoalId)}
                       className={`border px-5 py-4 text-left transition-colors duration-300 ${
                         selected
                           ? 'border-brand-cyan bg-brand-navy-light'
@@ -154,33 +154,33 @@ export function ConceptRequestForm() {
                   htmlFor="concept-name"
                   className="overline block text-white/40"
                 >
-                  {concept.form.nameLabel}
+                  {design.form.nameLabel}
                 </label>
                 <input
-                  id="concept-name"
-                  data-testid="concept-name"
+                  id="design-name"
+                  data-testid="design-name"
                   required
                   value={form.name}
                   onChange={(e) => update('name', e.target.value)}
-                  placeholder={concept.form.namePlaceholder}
+                  placeholder={design.form.namePlaceholder}
                   className="mt-3 w-full border-b border-white/15 bg-transparent pb-3 text-lg text-white placeholder-white/25 outline-none transition-colors focus:border-brand-cyan"
                 />
               </div>
               <div>
                 <label
-                  htmlFor="concept-email"
+                  htmlFor="design-email"
                   className="overline block text-white/40"
                 >
-                  {concept.form.emailLabel}
+                  {design.form.emailLabel}
                 </label>
                 <input
-                  id="concept-email"
-                  data-testid="concept-email"
+                  id="design-email"
+                  data-testid="design-email"
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) => update('email', e.target.value)}
-                  placeholder={concept.form.emailPlaceholder}
+                  placeholder={design.form.emailPlaceholder}
                   className="mt-3 w-full border-b border-white/15 bg-transparent pb-3 text-lg text-white placeholder-white/25 outline-none transition-colors focus:border-brand-cyan"
                 />
               </div>
@@ -188,14 +188,14 @@ export function ConceptRequestForm() {
 
             <button
               type="submit"
-              data-testid="concept-submit"
+              data-testid="design-submit"
               disabled={submitting}
               className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-sm font-medium text-white transition-[transform,box-shadow] duration-300 hover:scale-[1.03] hover:shadow-brand-glow disabled:opacity-60"
             >
               {submitting && <Loader2 className="h-4 w-4 animate-spin" />}
               {submitting
-                ? concept.form.submittingLabel
-                : concept.form.submitLabel}
+                ? design.form.submittingLabel
+                : design.form.submitLabel}
             </button>
           </motion.form>
         )}

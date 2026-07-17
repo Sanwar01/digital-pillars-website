@@ -91,12 +91,12 @@ export const contact = {
       generic: 'Something went wrong. Please try again or email us directly.',
     },
   },
-  conceptCta: {
+  designCta: {
     eyebrow: 'Limited offer',
-    headline: 'Free homepage concept in 48 hours',
+    headline: 'Free homepage design in 48 hours',
     body: 'Not sure where to start? We’ll deliver a free custom concept for your homepage — no commitment required.',
-    ctaLabel: 'Claim free concept',
-    ctaHref: '/free-homepage-concept',
+    ctaLabel: 'Claim free design',
+    ctaHref: '/free-homepage-design',
   },
   contactInfo: {
     eyebrow: 'Get in touch',

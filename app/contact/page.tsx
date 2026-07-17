@@ -81,27 +81,27 @@ export default function Contact() {
               </div>
             </Reveal>
 
-            {/* FREE HOMEPAGE CONCEPT CTA */}
+            {/* FREE HOMEPAGE DESIGN CTA */}
             <Reveal delay={0.45}>
               <div
-                data-testid="contact-concept-cta"
+                data-testid="contact-homepage-design-cta"
                 className="mt-10 border border-brand-cyan/50 bg-brand-navy-light p-6 md:p-8"
               >
                 <p className="overline text-brand-cyan font-bold">
-                  {contact.conceptCta.eyebrow}
+                  {contact.designCta.eyebrow}
                 </p>
                 <h2 className="mt-4 font-display text-2xl leading-tight uppercase tracking-tight text-white sm:text-3xl">
-                  {contact.conceptCta.headline}
+                  {contact.designCta.headline}
                 </h2>
                 <p className="mt-4 max-w-md text-base text-white/55 font-medium">
-                  {contact.conceptCta.body}
+                  {contact.designCta.body}
                 </p>
                 <Link
-                  href={contact.conceptCta.ctaHref}
-                  data-testid="contact-concept-cta-button"
+                  href={contact.designCta.ctaHref}
+                  data-testid="contact-homepage-design-cta-button"
                   className="group mt-8 inline-flex items-center gap-2 border rounded-full border-brand-cyan px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-cyan transition-colors hover:bg-brand-cyan hover:text-brand-navy"
                 >
-                  <span>{contact.conceptCta.ctaLabel}</span>
+                  <span>{contact.designCta.ctaLabel}</span>
                   <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
                 </Link>
               </div>

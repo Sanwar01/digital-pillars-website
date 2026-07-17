@@ -1,16 +1,16 @@
-export type ConceptGoalId = 'more-enquiries' | 'relaunch' | 'first-site';
+export type DesignGoalId = 'more-enquiries' | 'relaunch' | 'first-site';
 
-export type ConceptRequest = {
+export type DesignRequest = {
   business: string;
   website: string;
-  goal: ConceptGoalId | null;
+  goal: DesignGoalId | null;
   name: string;
   email: string;
 };
 
-export const concept = {
+export const design = {
   seo: {
-    title: 'Free Homepage Concept | Digital Pillars Manchester',
+    title: 'Free Homepage Design | Digital Pillars Manchester',
     description:
       'Get a free homepage concept for your business — a real design direction from Digital Pillars, delivered within 48 hours. No commitment, no payment details.',
   },

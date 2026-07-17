@@ -10,7 +10,7 @@ export const FinalCta = () => {
     >
       <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
         <Reveal>
-          <p className="overline text-brand-navy/80 font-bold">
+          <p className="overline text-brand-navy/80 font-medium">
             {FINAL_CTA.eyebrow}
           </p>
           <h2 className="mt-6 max-w-4xl font-display text-5xl leading-[0.95] sm:text-6xl lg:text-7xl">

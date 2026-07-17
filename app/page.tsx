@@ -44,7 +44,9 @@ export default function Home() {
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24">
           <Reveal y={0} delay={0.2}>
-            <p className="overline text-brand-cyan">{home.hero.eyebrow}</p>
+            <p className="overline text-brand-cyan font-medium">
+              {home.hero.eyebrow}
+            </p>
           </Reveal>
           <h1 className="mt-6 font-display text-[13vw] leading-[0.95] tracking-tight text-white sm:text-[10vw] lg:text-[7.6vw]">
             {' '}
@@ -93,7 +95,9 @@ export default function Home() {
       <Marquee testId="home-marquee" />
       <section className="mx-auto max-w-[1400px] px-6 py-14 md:px-10">
         <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <p className="overline text-white/40">{home.trust.eyebrow}</p>
+          <p className="overline text-white/40 font-medium">
+            {home.trust.eyebrow}
+          </p>
           <div className="flex flex-wrap gap-x-8 gap-y-3">
             {INDUSTRIES.map((i) => (
               <span key={i} className="text-white/60">
@@ -136,7 +140,7 @@ export default function Home() {
       >
         <Reveal className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="overline text-brand-cyan">
+            <p className="overline text-brand-cyan font-medium">
               {home.servicesPreview.eyebrow}
             </p>
             <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
@@ -233,7 +237,7 @@ export default function Home() {
             </div>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="overline text-brand-cyan">
+            <p className="overline text-brand-cyan font-medium">
               {home.aboutPreview.eyebrow}
             </p>
             <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">

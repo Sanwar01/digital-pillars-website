@@ -33,7 +33,7 @@ export const contact = {
   enquiry: {
     progressLabel: 'Step',
     backLabel: 'Back',
-    nextLabel: 'Continue',
+    nextLabel: 'Next',
     submitLabel: 'Send enquiry',
     submittingLabel: 'Sending…',
     steps: {

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowLeft, Check, Loader2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, Loader2 } from 'lucide-react';
 import { contact, type EnquiryServiceId } from '@/content/contact';
 import { EASE } from '@/components/Reveal';
 import Link from 'next/link';
@@ -158,22 +158,11 @@ export function EnquiryWizard() {
         <p className="text-sm text-white/45">
           {enquiry.progressLabel} {stepIndex + 1} of {STEPS.length}
         </p>
-        {stepIndex > 0 && (
-          <button
-            type="button"
-            onClick={goBack}
-            data-testid="enquiry-back"
-            className="inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-white"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {enquiry.backLabel}
-          </button>
-        )}
       </div>
 
       <div className="mb-8 h-px w-full bg-white/10">
         <div
-          className="h-px bg-brand-gradient transition-[width] duration-500"
+          className="h-px bg-brand-cyan transition-[width] duration-500"
           style={{ width: `${((stepIndex + 1) / STEPS.length) * 100}%` }}
         />
       </div>
@@ -236,7 +225,7 @@ export function EnquiryWizard() {
               </h3>
               <label
                 htmlFor="enquiry-description"
-                className="overline mt-6 block text-white/40"
+                className="overline mt-6 block text-white/60 font-medium"
               >
                 {enquiry.steps.description.label}
               </label>
@@ -271,7 +260,7 @@ export function EnquiryWizard() {
                 <div>
                   <label
                     htmlFor="enquiry-name"
-                    className="overline block text-white/40"
+                    className="overline block text-white/60 font-medium"
                   >
                     {enquiry.steps.details.nameLabel}
                   </label>
@@ -295,7 +284,7 @@ export function EnquiryWizard() {
                 <div>
                   <label
                     htmlFor="enquiry-phone"
-                    className="overline block text-white/40"
+                    className="overline block text-white/60 font-medium"
                   >
                     {enquiry.steps.details.phoneLabel}
                   </label>
@@ -320,7 +309,7 @@ export function EnquiryWizard() {
                 <div>
                   <label
                     htmlFor="enquiry-email"
-                    className="overline block text-white/40"
+                    className="overline block text-white/60 font-medium"
                   >
                     {enquiry.steps.details.emailLabel}
                   </label>
@@ -359,28 +348,53 @@ export function EnquiryWizard() {
 
       <div className="mt-10">
         {step !== 'details' ? (
-          <button
-            type="button"
-            onClick={goNext}
-            data-testid="enquiry-next"
-            className="inline-flex items-center gap-2 rounded-full bg-brand-cyan px-8 py-4 text-sm font-bold text-brand-navy transition-[transform,box-shadow] duration-300 hover:scale-[1.03] hover:shadow-brand-glow"
-          >
-            {enquiry.nextLabel}
-          </button>
+          <div className="flex items-center justify-between gap-4">
+            <button
+              disabled={submitting || stepIndex === 0}
+              type="button"
+              onClick={goBack}
+              data-testid="enquiry-back"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-4 text-sm font-bold text-white transition-colors hover:border-brand-cyan hover:text-brand-cyan disabled:opacity-60 disabled:border-white/10 disabled:text-white/50"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              {enquiry.backLabel}
+            </button>
+            <button
+              type="button"
+              onClick={goNext}
+              data-testid="enquiry-next"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-4 text-sm font-bold text-brand-navy transition-[transform,box-shadow] duration-300 hover:scale-[1.03] hover:shadow-brand-glow"
+            >
+              {enquiry.nextLabel}
+              <ArrowRight className="h-4 w-4" />
+            </button>
+          </div>
         ) : (
-          <button
-            type="submit"
-            data-testid="enquiry-submit"
-            disabled={submitting}
-            className="inline-flex items-center gap-2 rounded-full bg-brand-gradient px-8 py-4 text-sm font-medium text-white transition-[transform,box-shadow] duration-300 hover:scale-[1.03] hover:shadow-brand-glow disabled:opacity-60"
-          >
-            {submitting ? (
-              <Loader2 className="h-4 w-4 animate-spin" />
-            ) : (
-              <Check className="h-4 w-4" />
-            )}
-            {submitting ? enquiry.submittingLabel : enquiry.submitLabel}
-          </button>
+          <div className="flex items-center justify-between gap-4">
+            <button
+              type="button"
+              onClick={goBack}
+              data-testid="enquiry-back"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-4 text-sm font-bold text-white transition-colors hover:border-brand-cyan hover:text-brand-cyan disabled:opacity-60 disabled:border-white/10 disabled:text-white/50"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              {enquiry.backLabel}
+            </button>
+
+            <button
+              type="submit"
+              data-testid="enquiry-submit"
+              disabled={submitting}
+              className="inline-flex items-center gap-2 rounded-full bg-brand-cyan px-6 py-4 text-sm font-bold text-brand-navy transition-[transform,box-shadow] duration-300 hover:scale-[1.03] hover:shadow-brand-glow disabled:opacity-60"
+            >
+              {submitting ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
+              ) : (
+                <ArrowRight className="h-4 w-4" />
+              )}
+              {submitting ? enquiry.submittingLabel : enquiry.submitLabel}
+            </button>
+          </div>
         )}
       </div>
     </form>

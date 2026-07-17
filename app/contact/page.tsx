@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Calendar, ChevronRight, Mail, MapPin } from 'lucide-react';
+import Link from 'next/link';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
-import { ProjectPlanner } from '@/components/ProjectPlanner';
+import { EnquiryWizard } from '@/components/EnquiryWizard';
 import { useSeo } from '@/hooks/useSeo';
-import { SITE, INDUSTRIES } from '@/content/site';
+import { SITE } from '@/content/site';
 import { contact } from '@/content/contact';
 import {
   Accordion,
@@ -21,107 +22,121 @@ export default function Contact() {
 
   return (
     <div data-testid="contact-page">
-      {/* HERO */}
-      <section className="mx-auto max-w-[1400px] px-6 pb-12 pt-40 md:px-10 md:pb-16 md:pt-52">
-        <p className="overline text-brand-cyan">{contact.hero.eyebrow}</p>
-        <h1 className="mt-6 max-w-5xl font-display text-[12vw] leading-[0.9] sm:text-[9vw] lg:text-[7vw]">
-          <KineticHeadline lines={[...contact.hero.lines]} />
-        </h1>
-        <Reveal delay={0.4}>
-          <p className="mt-10 max-w-2xl text-lg text-white/70">
-            {contact.hero.body}
-          </p>
-        </Reveal>
-      </section>
+      {/* HERO + ACTIONS */}
+      <section className="mx-auto max-w-[1400px] px-6 pb-16 pt-40 md:px-10 md:pb-24 md:pt-52">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* LEFT: copy */}
+          <div className="lg:col-span-5">
+            <p className="overline text-brand-cyan">{contact.hero.eyebrow}</p>
+            <h1 className="mt-6 font-display text-[13vw] leading-[0.9] sm:text-[9vw] lg:text-[5.5vw]">
+              <KineticHeadline lines={[...contact.hero.lines]} />
+            </h1>
+            <Reveal delay={0.3}>
+              <p className="mt-8 max-w-md text-lg text-white/70">
+                {contact.hero.body}
+              </p>
+            </Reveal>
 
-      {/* PLANNER */}
-      <section className="border-t border-white/10">
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">
-            <div className="lg:col-span-8">
-              <ProjectPlanner />
-            </div>
-            <Reveal delay={0.1} className="lg:col-span-4">
-              <div className="lg:sticky lg:top-28 space-y-10">
-                <div>
-                  <p className="overline text-white/40">
-                    {contact.sidebar.directLabel}
-                  </p>
-                  <ul className="mt-5 space-y-4 text-lg">
-                    <li>
-                      <a
-                        href={`mailto:${SITE.email}`}
-                        data-testid="contact-email-link"
-                        className="flex items-center gap-3 text-white/80 hover:text-brand-cyan"
-                      >
-                        <Mail className="h-5 w-5 text-brand-cyan" />{' '}
-                        {SITE.email}
-                      </a>
-                    </li>
-                    <li className="flex items-start gap-3 text-white/80">
-                      <MapPin className="mt-1 h-5 w-5 shrink-0 text-brand-cyan" />{' '}
-                      {SITE.address}
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <p className="overline text-white/40">
-                    {contact.sidebar.followLabel}
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {SITE.socials.map((s) => (
-                      <a
-                        key={s.label}
-                        href={s.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="rounded-full border border-white/15 px-4 py-2 text-xs text-white/70 transition-colors hover:border-brand-cyan hover:text-brand-cyan"
-                      >
-                        {s.label}
-                      </a>
-                    ))}
-                  </div>
+            {/* <Reveal delay={0.35}>
+              <ul className="mt-10 space-y-4">
+                {contact.hero.highlights.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-lg text-white/80"
+                  >
+                    <ChevronRight className="mt-1 h-5 w-5 shrink-0 text-brand-cyan" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </Reveal> */}
+
+            <Reveal delay={0.4}>
+              <div className="mt-6 border-t border-white/10 pt-6">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  data-testid="contact-email-link"
+                  className="mt-3 inline-flex items-center gap-3 text-lg text-white/80 hover:text-brand-cyan"
+                >
+                  <Mail className="h-5 w-5 text-brand-cyan" />
+                  {SITE.email}
+                </a>
+                <p className="mt-4 flex items-start gap-3 text-white/80 text-lg">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-brand-cyan" />
+                  {SITE.address}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {SITE.socials.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/70 transition-colors hover:border-brand-cyan hover:text-brand-cyan"
+                    >
+                      {s.label}
+                    </a>
+                  ))}
                 </div>
               </div>
             </Reveal>
-          </div>
-        </div>
-      </section>
 
-      {/* TRUST */}
-      <section
-        data-testid="contact-trust"
-        className="border-y border-white/10 bg-brand-navy-light"
-      >
-        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
-          <Reveal>
-            <p className="overline text-brand-cyan">{contact.trust.eyebrow}</p>
-          </Reveal>
-          <div className="mt-10 grid grid-cols-2 gap-px bg-white/10 md:grid-cols-4">
-            {contact.trust.items.map((item, i) => (
-              <Reveal key={item.v} delay={i * 0.05}>
-                <div className="bg-brand-navy-light p-8 md:p-10">
-                  <span className="font-display text-4xl text-brand-cyan md:text-5xl">
-                    {item.k}
-                  </span>
-                  <p className="mt-3 text-sm text-white/55">{item.v}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-12">
-            <p className="overline text-white/40">
-              {contact.trust.industriesLabel}
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              {INDUSTRIES.map((i) => (
-                <span
-                  key={i}
-                  className="rounded-full border border-white/15 px-5 py-2 text-sm text-white/70"
+            {/* FREE HOMEPAGE CONCEPT CTA */}
+            <Reveal delay={0.45}>
+              <div
+                data-testid="contact-concept-cta"
+                className="mt-10 border border-brand-cyan/50 bg-brand-navy-light p-6 md:p-8"
+              >
+                <p className="overline text-brand-cyan font-bold">
+                  {contact.conceptCta.eyebrow}
+                </p>
+                <h2 className="mt-4 font-display text-2xl leading-tight uppercase tracking-tight text-white sm:text-3xl">
+                  {contact.conceptCta.headline}
+                </h2>
+                <p className="mt-4 max-w-md text-base text-white/55 font-medium">
+                  {contact.conceptCta.body}
+                </p>
+                <Link
+                  href={contact.conceptCta.ctaHref}
+                  data-testid="contact-concept-cta-button"
+                  className="group mt-8 inline-flex items-center gap-2 border rounded-full border-brand-cyan px-5 py-3 text-xs font-bold uppercase tracking-[0.16em] text-brand-cyan transition-colors hover:bg-brand-cyan hover:text-brand-navy"
                 >
-                  {i}
+                  <span>{contact.conceptCta.ctaLabel}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* RIGHT: book call + enquiry */}
+          <Reveal delay={0.2} className="lg:col-span-7">
+            <div
+              data-testid="contact-panel-enquiry"
+              className="border border-white/10 bg-brand-navy-light p-6 md:p-8"
+            >
+              <a
+                href={contact.calendly.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-testid="contact-book-call-cta"
+                className="group flex w-full items-center justify-between rounded-full gap-4 bg-brand-cyan px-6 py-4 text-left text-sm roudnr font-bold tracking-wide text-brand-navy transition-[transform,box-shadow] duration-300 hover:scale-[1.01] hover:shadow-brand-glow"
+              >
+                <span>{contact.hero.bookCallCta}</span>
+                <Calendar className="h-5 w-5 shrink-0 transition-transform duration-300 group-hover:scale-110" />
+              </a>
+
+              <div className="relative my-8 flex items-center gap-4">
+                <div className="h-px flex-1 bg-white/10" />
+                <span className="text-xs font-medium tracking-[0.2em] text-white/35">
+                  {contact.hero.orLabel}
                 </span>
-              ))}
+                <div className="h-px flex-1 bg-white/10" />
+              </div>
+
+              <p className="mb-6 text-sm text-white/50">
+                {contact.hero.formIntro}
+              </p>
+              <EnquiryWizard />
             </div>
           </Reveal>
         </div>
@@ -129,7 +144,7 @@ export default function Contact() {
 
       {/* FAQS */}
       <section data-testid="contact-faq" className="border-t border-white/10">
-        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-12 md:gap-10">
             <Reveal className="md:col-span-4">
               <p className="overline text-brand-cyan">{contact.faqs.eyebrow}</p>

@@ -1,4 +1,5 @@
 import { Code2, AppWindow, Compass, Bot } from 'lucide-react';
+import { contact } from './contact';
 
 export const SITE = {
   name: 'Digital Pillars',
@@ -35,7 +36,7 @@ export const FOOTER_COPY = {
 };
 
 export const HEADER_CTA = {
-  label: 'Book a call',
+  label: "Let's talk",
   href: '/contact',
 };
 
@@ -116,6 +117,6 @@ export const FINAL_CTA = {
   eyebrow: "Let's build something",
   headline: 'Ready to outgrow your competitors?',
   body: "Book a free discovery call and we'll map out exactly how Digital Pillars can move your business forward.",
-  primary: { label: 'Book a call', href: '/contact' },
+  primary: { label: "Let's talk", href: '/contact' },
   secondary: { label: 'See our work', href: '/our-work' },
 };

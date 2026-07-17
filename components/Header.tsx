@@ -88,7 +88,7 @@ export function Header() {
                   href={n.to}
                   data-testid={`mobile-nav-${n.label.toLowerCase()}`}
                   className={cn(
-                    'py-3 font-display text-2xl',
+                    'text-sm tracking-wide transition-colors',
                     pathname === n.to
                       ? 'text-brand-cyan'
                       : 'text-white/70 hover:text-white',

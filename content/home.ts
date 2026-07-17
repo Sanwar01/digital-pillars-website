@@ -1,3 +1,5 @@
+import { contact } from './contact';
+
 export const home = {
   seo: {
     title: 'Digital Pillars | Web Design & Software Agency Manchester',
@@ -12,8 +14,8 @@ export const home = {
     lines: ['We build the', 'digital pillars', 'your business'],
     accentLine: 'stands on.',
     body: 'Websites, software, strategy and AI automation — engineered to beat your competitors and win you more leads.',
-    primaryCta: { label: 'Book a call', href: '/contact' },
-    secondaryCta: { label: 'See our work', href: '/our-work' },
+    primaryCta: { label: 'Get free homepage design', href: '/contact' },
+    secondaryCta: { label: 'See our work', href: '/free-homepage-design' },
   },
   trust: {
     eyebrow: 'Trusted across industries',

@@ -28,10 +28,12 @@ export default function FreeHomepageDesign() {
       <section data-testid="design-steps" className="border-t border-white/10">
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
           <Reveal className="mb-12">
-            <p className="overline text-brand-cyan">{design.steps.eyebrow}</p>
+            <p className="overline text-brand-cyan">
+              {design.howItWorks.eyebrow}
+            </p>
           </Reveal>
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded border border-white/10 bg-white/10 md:grid-cols-3">
-            {design.steps.items.map((step, i) => (
+            {design.howItWorks.items.map((step, i) => (
               <Reveal key={step.no} delay={i * 0.08}>
                 <div className="h-full bg-brand-navy p-8 md:p-10">
                   <span className="font-display text-5xl text-stroke md:text-6xl">
@@ -54,16 +56,18 @@ export default function FreeHomepageDesign() {
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-7">
-              <Reveal className="mb-12">
+              <Reveal className="mb-10">
                 <p className="overline text-brand-cyan">
-                  {design.form.eyebrow}
+                  {design.formSection.eyebrow}
                 </p>
                 <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
-                  {design.form.headline}
+                  {design.formSection.headline}
                 </h2>
               </Reveal>
               <Reveal delay={0.1}>
-                <DesignRequestForm />
+                <div className="border border-white/10 bg-brand-navy p-6 md:p-8">
+                  <DesignRequestForm />
+                </div>
               </Reveal>
             </div>
 

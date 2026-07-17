@@ -4,4 +4,4 @@ export { about } from './about';
 export { services } from './services';
 export { ourWork } from './our-work';
 export { contact } from './contact';
-export { concept } from './design';
+export { design } from './design';

@@ -3,14 +3,8 @@ import type { Metadata } from 'next';
 
 import './globals.css';
 import { PageShell } from '@/components/PageShell';
-import { Outfit } from 'next/font/google';
+import { cabinetGrotesk } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-sans',
-});
 
 export const metadata: Metadata = {
   title: {
@@ -32,14 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={cn('font-sans', outfit.variable)}>
-      <head>
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@700,800,900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={cn(outfit.className, 'font-sans')}>
+    <html lang="en-GB" className={cabinetGrotesk.variable}>
+      <body className={cn(cabinetGrotesk.className, 'font-sans antialiased')}>
         <PageShell>{children}</PageShell>
         {/* <Toaster position="bottom-right" theme="dark" /> */}
       </body>

@@ -41,7 +41,7 @@
         margin: 0;
         background-color: var(--brand-navy);
         color: #ffffff;
-        font-weight: 300;
+        font-weight: 400;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         overflow-x: hidden;
@@ -52,10 +52,11 @@
     }
 }
 
-.font-display {
-    font-family: "Cabinet Grotesk", "Outfit", sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.03em;
+@layer components {
+    .font-display {
+        font-weight: 800;
+        letter-spacing: -0.03em;
+    }
 }
 
 .overline {

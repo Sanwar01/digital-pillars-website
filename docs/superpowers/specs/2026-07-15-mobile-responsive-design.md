@@ -33,7 +33,7 @@ Layouts mostly stack via `grid-cols-1` → `md:` / `lg:`, but mobile UX still su
 - Visual redesign or new brand tokens
 - New breakpoint system beyond existing Tailwind defaults
 - Desktop-only layout changes except where shared components require it
-- CMS / content changes (unless fixing broken `/listings` links that affect all viewports)
+- CMS / content changes (unless fixing broken `/our-work` links that affect all viewports)
 
 ## Pages / files expected to change
 

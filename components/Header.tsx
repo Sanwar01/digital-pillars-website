@@ -8,6 +8,7 @@ import { Logo } from '@/components/Logo';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NAV, HEADER_CTA } from '@/content/site';
+import { cn } from '@/lib/utils';
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -86,11 +87,12 @@ export function Header() {
                   key={n.to}
                   href={n.to}
                   data-testid={`mobile-nav-${n.label.toLowerCase()}`}
-                  className={
+                  className={cn(
+                    'py-3 font-display text-2xl',
                     pathname === n.to
                       ? 'text-brand-cyan'
-                      : 'text-white/70 hover:text-white'
-                  }
+                      : 'text-white/70 hover:text-white',
+                  )}
                 >
                   {n.label}
                 </Link>

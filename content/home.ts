@@ -13,7 +13,7 @@ export const home = {
     accentLine: 'stands on.',
     body: 'Websites, software, strategy and AI automation — engineered to beat your competitors and win you more leads.',
     primaryCta: { label: 'Book a call', href: '/contact' },
-    secondaryCta: { label: 'See our work', href: '/listings' },
+    secondaryCta: { label: 'See our work', href: '/our-work' },
   },
   trust: {
     eyebrow: 'Trusted across industries',

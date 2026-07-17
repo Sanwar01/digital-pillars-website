@@ -117,5 +117,5 @@ export const FINAL_CTA = {
   headline: 'Ready to outgrow your competitors?',
   body: "Book a free discovery call and we'll map out exactly how Digital Pillars can move your business forward.",
   primary: { label: 'Book a call', href: '/contact' },
-  secondary: { label: 'See our work', href: '/listings' },
+  secondary: { label: 'See our work', href: '/our-work' },
 };

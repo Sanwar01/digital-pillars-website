@@ -18,10 +18,10 @@ export function CtaButton({
   ...rest
 }: CtaButtonProps) {
   const base =
-    'group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide transition-[transform,background-color,color,box-shadow] duration-300 will-change-transform';
+    'group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold tracking-wide transition-[transform,background-color,color,box-shadow] duration-300 will-change-transform';
   const styles =
     variant === 'primary'
-      ? 'bg-brand-gradient text-white hover:scale-[1.03] hover:shadow-brand-glow'
+      ? 'bg-brand-cyan text-brand-navy hover:scale-[1.03] hover:shadow-brand-glow'
       : 'border border-white/20 text-white hover:bg-white hover:text-brand-navy hover:scale-[1.03]';
   const cls = `${base} ${styles} ${className}`;
   const inner = (

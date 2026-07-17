@@ -31,7 +31,7 @@ export const Footer = () => {
           </div>
 
           <div className="md:col-span-3">
-            <p className="overline text-white/40">
+            <p className="overline text-white/40 font-medium">
               {FOOTER_COPY.navigateLabel}
             </p>
             <ul className="mt-5 space-y-3">
@@ -50,7 +50,9 @@ export const Footer = () => {
           </div>
 
           <div className="md:col-span-4">
-            <p className="overline text-white/40">{FOOTER_COPY.contactLabel}</p>
+            <p className="overline text-white/40 font-medium">
+              {FOOTER_COPY.contactLabel}
+            </p>
             <ul className="mt-5 space-y-4 text-white/70">
               <li>
                 <Link

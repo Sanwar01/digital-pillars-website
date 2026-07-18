@@ -68,7 +68,7 @@ Each page file owns copy unique to that route, including lists only rendered on 
 | `our-work.ts` | SEO; hero; `PROJECTS`; `FILTERS`; empty-state message |
 | `contact.ts` | SEO; hero; form field definitions (labels, placeholders, required flags); form submit labels; sidebar section labels |
 
-Pages keep animation, layout, and interactivity. Content files hold strings, lists, URLs, and icon component references (same Lucide pattern as today&apos;s `SERVICES`).
+Pages keep animation, layout, and interactivity. Content files hold strings, lists, URLs, and icon component references (same Lucide pattern as today's `SERVICES`).
 
 ## Page / component changes
 
@@ -93,7 +93,7 @@ Pages keep animation, layout, and interactivity. Content files hold strings, lis
 
 ## Success criteria
 
-- Editing any page&apos;s visible marketing copy only requires opening that page&apos;s content file (or `site.ts` for shared chrome/catalog).
+- Editing any page's visible marketing copy only requires opening that page's content file (or `site.ts` for shared chrome/catalog).
 - Pages and shared components contain no hardcoded marketing headlines, body copy, SEO titles/descriptions, CTA labels, or contact details.
 - Site looks and behaves identically after the migration.
 - `lib/content.ts` is removed.

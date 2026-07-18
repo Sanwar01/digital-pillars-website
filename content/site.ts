@@ -1,5 +1,4 @@
 import { Code2, AppWindow, Compass, Bot } from 'lucide-react';
-import { contact } from './contact';
 
 export const SITE = {
   name: 'Digital Pillars',

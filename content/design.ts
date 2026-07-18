@@ -43,7 +43,7 @@ export const design = {
   hero: {
     eyebrow: 'Free homepage concept',
     lines: ['See your new site', 'before you spend.'],
-    body: 'Answer a few short questions and we’ll design a free homepage concept for you — delivered within 48 hours. No commitment, no payment details, no catch.',
+    body: 'Answer a few short questions and we&apos;ll design a free homepage concept for you — delivered within 48 hours. No commitment, no payment details, no catch.',
   },
   howItWorks: {
     eyebrow: 'How it works',
@@ -61,7 +61,7 @@ export const design = {
       {
         no: '03',
         title: 'Delivered in 48 hours',
-        body: 'You get the concept by email. Love it? We’ll talk about building the rest.',
+        body: 'You get the concept by email. Love it? We&apos;ll talk about building the rest.',
       },
     ],
   },
@@ -83,7 +83,7 @@ export const design = {
         businessNameLabel: 'Business name',
         businessNamePlaceholder: 'Whitfield Lettings',
         websiteLabel: 'Website',
-        websiteHint: 'If you don’t have a website, leave it blank.',
+        websiteHint: 'If you don&apos;t have a website, leave it blank.',
         websitePlaceholder: 'https://…',
         industryLabel: 'Industry',
         industryPlaceholder: 'Select an industry',
@@ -103,7 +103,7 @@ export const design = {
       },
       improve: {
         title: 'What do you want to improve?',
-        subtitle: 'What’s the main reason you want a new homepage?',
+        subtitle: 'What&apos;s the main reason you want a new homepage?',
         hint: 'Choose up to 3. This tells us what to optimise for.',
         max: 3,
         options: [
@@ -152,11 +152,14 @@ export const design = {
       threeWords: {
         title: 'Describe your business in three words',
         subtitle: 'A quick bonus if you want to shape the tone.',
-        hint: 'Optional — skip if you’re not sure.',
+        hint: 'Optional — skip if you&apos;re not sure.',
         label: 'Three words',
         placeholder: 'Modern, luxury, friendly',
         exampleLabel: 'Examples',
-        examples: ['Modern · Luxury · Friendly', 'Fast · Reliable · Affordable'],
+        examples: [
+          'Modern · Luxury · Friendly',
+          'Fast · Reliable · Affordable',
+        ],
       },
       contact: {
         title: 'Contact details',
@@ -172,16 +175,16 @@ export const design = {
     },
     success: {
       eyebrow: 'Thanks!',
-      title: 'We’ve received your request.',
-      nextLabel: 'Here’s what happens next.',
+      title: 'We&apos;ve received your request.',
+      nextLabel: 'Here&apos;s what happens next.',
       nextSteps: [
-        'We’ll research your business.',
-        'We’ll design a bespoke homepage concept.',
-        'We’ll email it to you within 48 hours.',
+        'We&apos;ll research your business.',
+        'We&apos;ll design a bespoke homepage concept.',
+        'We&apos;ll email it to you within 48 hours.',
       ],
-      waitingLabel: 'While you’re waiting…',
+      waitingLabel: 'While you&apos;re waiting…',
       waitingBody:
-        'Book a free strategy call if you’d like to discuss your project.',
+        'Book a free strategy call if you&apos;d like to discuss your project.',
       ctaLabel: 'Book a free strategy call',
     },
   },
@@ -193,7 +196,7 @@ export const design = {
       'Designed by a real person, not a template',
       'Yours to keep — no strings attached',
     ],
-    note: 'The free homepage concept is a design direction, not a full built website. If you like it, we’ll quote for the complete build — and if you don’t, you owe us nothing.',
+    note: 'The free homepage concept is a design direction, not a full built website. If you like it, we&apos;ll quote for the complete build — and if you don&apos;t, you owe us nothing.',
   },
   formSection: {
     eyebrow: 'Get started',

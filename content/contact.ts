@@ -17,12 +17,12 @@ export const contact = {
     body: 'Whether you need a sharper website, a store that sells, a custom web app, or AI that saves hours — pick a path below. A senior partner responds within one working day.',
     highlights: [
       'A clear plan for your next digital move',
-      'Honest advice on what’s worth building',
+      'Honest advice on what&apos;s worth building',
       'Fast turnaround from first conversation',
       'Manchester-based, working UK-wide',
     ],
     formIntro:
-      'Prefer to write it down? Send an enquiry and we’ll come back to you.',
+      'Prefer to write it down? Send an enquiry and we&apos;ll come back to you.',
     bookCallCta: 'Book a free discovery call',
     orLabel: 'OR',
     reachOutLabel: 'Prefer email?',
@@ -63,12 +63,12 @@ export const contact = {
           {
             id: 'other',
             label: 'Something else',
-            hint: 'Not sure yet — that’s fine',
+            hint: 'Not sure yet — that&apos;s fine',
           },
         ],
       },
       description: {
-        title: 'What’s the goal?',
+        title: 'What&apos;s the goal?',
         label: 'Briefly describe what you need help with.',
         placeholder: 'What are you looking to build?',
       },
@@ -94,7 +94,7 @@ export const contact = {
   designCta: {
     eyebrow: 'Limited offer',
     headline: 'Free homepage design in 48 hours',
-    body: 'Not sure where to start? We’ll deliver a free custom concept for your homepage — no commitment required.',
+    body: 'Not sure where to start? We&apos;ll deliver a free custom concept for your homepage — no commitment required.',
     ctaLabel: 'Claim free design',
     ctaHref: '/free-homepage-design',
   },
@@ -110,11 +110,11 @@ export const contact = {
     items: [
       {
         q: 'Is the strategy call really free?',
-        a: 'Yes. It’s a focused conversation to see if we’re a fit. No hard sell — if we’re not right for you, we’ll say so.',
+        a: 'Yes. It&apos;s a focused conversation to see if we&apos;re a fit. No hard sell — if we&apos;re not right for you, we&apos;ll say so.',
       },
       {
-        q: 'What’s in the free homepage concept?',
-        a: 'One homepage design concept tailored to your business, delivered by email within 48 hours. It’s a design direction, not a full built website — and it’s yours to keep either way.',
+        q: 'What&apos;s in the free homepage concept?',
+        a: 'One homepage design concept tailored to your business, delivered by email within 48 hours. It&apos;s a design direction, not a full built website — and it&apos;s yours to keep either way.',
       },
       {
         q: 'How long does a typical project take?',
@@ -122,7 +122,7 @@ export const contact = {
       },
       {
         q: 'Do you work outside Manchester?',
-        a: 'Yes. We’re Manchester-based and work with clients across the UK and beyond, remotely with regular check-ins.',
+        a: 'Yes. We&apos;re Manchester-based and work with clients across the UK and beyond, remotely with regular check-ins.',
       },
       {
         q: 'Can I just email you instead?',

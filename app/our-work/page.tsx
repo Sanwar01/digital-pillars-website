@@ -62,26 +62,17 @@ export default function Listings() {
           className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-10 md:gap-y-16"
         >
           <AnimatePresence mode="popLayout">
-            {projects.map((p, i) => (
-              <motion.div
-                key={p.id}
-                layout
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                className={i % 2 === 1 ? 'md:mt-16' : ''}
-              >
-                <Link
-                  href="/contact"
-                  data-testid={`project-${p.id}`}
-                  className="group block"
-                >
+            {projects.map((p, i) => {
+              const hasCaseStudy = Boolean(p.caseStudy);
+              const card = (
+                <>
                   <div className="overflow-hidden rounded border border-white/10">
                     <img
                       src={p.image}
                       alt={`${p.title} — ${p.type} project by Digital Pillars`}
-                      className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                      className={`aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        hasCaseStudy ? 'group-hover:scale-105' : ''
+                      }`}
                     />
                   </div>
                   <div className="mt-5 flex items-start justify-between">
@@ -93,14 +84,45 @@ export default function Listings() {
                         {p.type} · {p.year}
                       </p>
                     </div>
-                    <ArrowUpRight className="mt-1 h-6 w-6 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-cyan" />
+                    {hasCaseStudy && (
+                      <ArrowUpRight className="mt-1 h-6 w-6 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-cyan" />
+                    )}
                   </div>
                   <span className="mt-3 inline-block rounded-full border border-white/15 px-3 py-1 text-xs text-white/50">
                     {p.category}
                   </span>
-                </Link>
-              </motion.div>
-            ))}
+                </>
+              );
+
+              return (
+                <motion.div
+                  key={p.id}
+                  layout
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  className={i % 2 === 1 ? 'md:mt-16' : ''}
+                >
+                  {hasCaseStudy ? (
+                    <Link
+                      href={`/our-work/${p.slug}`}
+                      data-testid={`project-${p.id}`}
+                      className="group block"
+                    >
+                      {card}
+                    </Link>
+                  ) : (
+                    <div
+                      data-testid={`project-${p.id}`}
+                      className="block"
+                    >
+                      {card}
+                    </div>
+                  )}
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
 

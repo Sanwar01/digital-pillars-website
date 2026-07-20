@@ -75,22 +75,32 @@ export default function Listings() {
                       }`}
                     />
                   </div>
-                  <div className="mt-5 flex items-start justify-between">
-                    <div>
+                  <div className="mt-5 flex items-start justify-between gap-4">
+                    <div className="min-w-0">
                       <h3 className="font-display text-2xl md:text-3xl">
                         {p.title}
                       </h3>
                       <p className="mt-2 text-sm text-white/50">
-                        {p.type} · {p.year}
+                        {p.category} · {p.year}
+                      </p>
+                      <p className="mt-4 text-base leading-relaxed text-white/65">
+                        {p.description}
                       </p>
                     </div>
                     {hasCaseStudy && (
-                      <ArrowUpRight className="mt-1 h-6 w-6 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-cyan" />
+                      <ArrowUpRight className="mt-1 h-6 w-6 shrink-0 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-cyan" />
                     )}
                   </div>
-                  <span className="mt-3 inline-block rounded-full border border-white/15 px-3 py-1 text-xs text-white/50">
-                    {p.category}
-                  </span>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {p.deliverables.map((d) => (
+                      <span
+                        key={d}
+                        className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/55"
+                      >
+                        {d}
+                      </span>
+                    ))}
+                  </div>
                 </>
               );
 

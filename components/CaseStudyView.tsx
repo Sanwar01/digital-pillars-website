@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { FinalCta } from '@/components/FinalCta';
 import { useSeo } from '@/hooks/useSeo';
@@ -21,35 +21,26 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
   return (
     <div data-testid="case-study-page">
       {/* 1. CASE STUDY HERO */}
-      <section className="relative min-h-[70vh] overflow-hidden md:min-h-[85vh]">
-        <img
-          src={caseStudy.heroImage}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/75 to-brand-navy/35" />
-        <div className="relative mx-auto flex min-h-[70vh] max-w-[1400px] flex-col justify-end px-6 pb-16 pt-40 md:min-h-[85vh] md:px-10 md:pb-24 md:pt-52">
-          <Link
-            href="/our-work"
-            data-testid="case-study-back"
-            className="mb-auto inline-flex w-fit items-center gap-2 text-sm text-white/70 transition-colors hover:text-brand-cyan"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {copy.backLabel}
-          </Link>
-          <p className="mt-16 overline text-brand-cyan md:mt-0">
-            {project.type} · {project.year}
+      <section className="mx-auto max-w-[1400px] px-6 pb-12 pt-32 md:px-10 md:pb-16 md:pt-40">
+        <Link
+          href="/our-work"
+          data-testid="case-study-back"
+          className="inline-flex w-fit items-center gap-2 text-sm text-white/50 transition-colors hover:text-brand-cyan"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          {copy.backLabel}
+        </Link>
+        <p className="mt-10 overline text-brand-cyan">
+          {project.type} · {project.year}
+        </p>
+        <h1 className="mt-5 max-w-4xl font-display text-[12vw] leading-[0.9] sm:text-6xl lg:text-7xl">
+          <KineticHeadline lines={[project.title]} />
+        </h1>
+        <Reveal delay={0.25}>
+          <p className="mt-6 max-w-2xl text-xl text-white/70 md:text-2xl">
+            {caseStudy.headline}
           </p>
-          <h1 className="mt-5 max-w-4xl font-display text-[12vw] leading-[0.9] sm:text-6xl lg:text-7xl">
-            <KineticHeadline lines={[project.title]} />
-          </h1>
-          <Reveal delay={0.25}>
-            <p className="mt-6 max-w-2xl text-xl text-white/80 md:text-2xl">
-              {caseStudy.headline}
-            </p>
-          </Reveal>
-        </div>
+        </Reveal>
       </section>
 
       {/* 2. PROJECT OVERVIEW */}
@@ -64,7 +55,20 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
               <div key={item.label}>
                 <dt className="text-sm text-white/40">{item.label}</dt>
                 <dd className="mt-2 font-display text-lg text-white md:text-xl">
-                  {item.value}
+                  {item.label === 'Website' ? (
+                    <div className="flex items-center gap-2">
+                      <Link
+                        href={item.value}
+                        target="_blank"
+                        className="transition-colors hover:text-brand-cyan"
+                      >
+                        {item.value}
+                        <ExternalLink className="h-4 w-4 inline-block ml-2" />
+                      </Link>
+                    </div>
+                  ) : (
+                    item.value
+                  )}
                 </dd>
               </div>
             ))}
@@ -131,7 +135,9 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 />
               </div>
               {leadVisual.caption && (
-                <p className="mt-4 text-sm text-white/45">{leadVisual.caption}</p>
+                <p className="mt-4 text-sm text-white/45">
+                  {leadVisual.caption}
+                </p>
               )}
             </Reveal>
           )}
@@ -147,7 +153,9 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                     />
                   </div>
                   {visual.caption && (
-                    <p className="mt-4 text-sm text-white/45">{visual.caption}</p>
+                    <p className="mt-4 text-sm text-white/45">
+                      {visual.caption}
+                    </p>
                   )}
                 </Reveal>
               ))}

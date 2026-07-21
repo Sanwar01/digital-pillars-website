@@ -14,8 +14,11 @@ export const home = {
     lines: ['We build the', 'digital pillars', 'your business'],
     accentLine: 'stands on.',
     body: 'Websites, software, strategy and AI automation — engineered to beat your competitors and win you more leads.',
-    primaryCta: { label: 'Get free homepage design', href: '/contact' },
-    secondaryCta: { label: 'See our work', href: '/free-homepage-design' },
+    primaryCta: {
+      label: 'Get free homepage design',
+      href: '/free-homepage-design',
+    },
+    secondaryCta: { label: 'See our work', href: '/our-work' },
   },
   trust: {
     eyebrow: 'Trusted across industries',

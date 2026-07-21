@@ -15,9 +15,9 @@ export const about = {
     ],
   },
   stats: [
-    { k: '60+', v: 'Projects delivered' },
-    { k: '5', v: 'Core industries served' },
-    { k: '100%', v: 'UK-based team' },
+    { k: '10+', v: 'Projects delivered' },
+    { k: '5+', v: 'Core industries served' },
+    { k: '100%', v: 'Client satisfaction' },
     { k: '4.9★', v: 'Average client rating' },
   ],
   mission: {
@@ -49,20 +49,5 @@ export const about = {
         body: "Award-level craft as standard. Your brand should look like the leader you're becoming.",
       },
     ],
-  },
-  officeImages: [
-    {
-      src: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?crop=entropy&cs=srgb&fm=jpg&q=85&w=1100',
-      alt: 'Modern meeting room at Digital Pillars Manchester',
-      className: 'md:mt-16',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?crop=entropy&cs=srgb&fm=jpg&q=85&w=1100',
-      alt: 'Design team collaborating on a project',
-      className: '',
-    },
-  ],
-  industries: {
-    eyebrow: 'Industries we serve',
   },
 };

@@ -19,7 +19,7 @@ export type CaseStudy = {
 
 export type Project = {
   id: number;
-  slug: string;
+  slug?: string;
   title: string;
   category: string;
   type: string;
@@ -46,14 +46,6 @@ export const ourWork = {
     lines: ['Work that', 'moves the needle.'],
     body: 'A snapshot of recent projects across our core industries. Every build is measured on the results it delivers.',
   },
-  filters: [
-    'All',
-    'Estate Agents',
-    'Charities',
-    'Startups',
-    'Energy Industry',
-    'Housing Associations',
-  ],
   caseStudy: {
     backLabel: 'All work',
     overviewEyebrow: 'Project overview',
@@ -68,29 +60,32 @@ export const ourWork = {
   projects: [
     {
       id: 1,
-      slug: 'northern-estates',
-      title: 'Northern Estates',
+      slug: 'greenfield-estates',
+      title: 'Greenfield Estates',
       category: 'Estate Agents',
       type: 'Website & Portal',
-      year: '2025',
-      image: img('photo-1542393545-10f5cde2c810', 1200),
+      year: '2026',
+      image: '/images/work/greenfield-estates/hero-1.png',
       description:
         'A conversion-led website and agent portal that turns property browsers into viewings.',
-      deliverables: ['UX/UI design', 'Web redesign', 'Portal build'],
+      deliverables: ['UX/UI design', 'Web development', 'Admin panel'],
       caseStudy: {
         seo: {
-          title: 'Northern Estates Case Study | Digital Pillars',
+          title: 'Greenfield Estates Case Study | Digital Pillars',
           description:
-            'A conversion-led estate agency website and portal that turned more browsers into viewings across Greater Manchester.',
+            'A conversion-led estate agency website and portal that turned more browsers into viewings.',
         },
         headline:
-          'More viewings. Clearer listings. A site that sells the property — not the template.',
-        heroImage: img('photo-1542393545-10f5cde2c810'),
+          'More viewings. Clearer listings. A site that sells the property — not the template. Powered by our own software, so you can update listings and manage enquiries yourself.',
+        heroImage: '/images/work/greenfield-estates/hero.png',
         overview: [
-          { label: 'Client', value: 'Northern Estates' },
           { label: 'Industry', value: 'Estate Agents' },
-          { label: 'Deliverable', value: 'Website & portal' },
-          { label: 'Year', value: '2025' },
+          { label: 'Project', value: 'Website & portal' },
+          {
+            label: 'Objective',
+            value: 'More viewings & clearer listings.',
+          },
+          { label: 'Timeline', value: '6 Weeks' },
         ],
         challenge:
           'Their old site looked dated and buried good stock. Buyers bounced on mobile, and agents spent too long chasing leads that never arrived.',
@@ -159,182 +154,153 @@ export const ourWork = {
     },
     {
       id: 2,
-      slug: 'brightfutures-trust',
-      title: 'BrightFutures Trust',
-      category: 'Charities',
-      type: 'Website & Automation',
-      year: '2025',
-      image: img('photo-1497366754035-f200968a6e72', 1200),
-      description:
-        'A warmer charity site with simpler giving — and less admin for the team.',
-      deliverables: ['UX/UI design', 'Web redesign', 'Automation'],
-      caseStudy: {
-        seo: {
-          title: 'BrightFutures Trust Case Study | Digital Pillars',
-          description:
-            'A warmer charity website and simpler giving experience that lifted online donations for BrightFutures Trust.',
-        },
-        headline:
-          'A site that shows the impact — and makes giving feel effortless.',
-        heroImage: img('photo-1497366754035-f200968a6e72'),
-        overview: [
-          { label: 'Client', value: 'BrightFutures Trust' },
-          { label: 'Industry', value: 'Charities' },
-          { label: 'Deliverable', value: 'Website & automation' },
-          { label: 'Year', value: '2025' },
-        ],
-        challenge:
-          'Supporters couldn’t find programmes or donate without friction. Staff wasted hours chasing incomplete gifts and updating records by hand.',
-        solution:
-          'We built a story-led website with a calm donation path — and automated the admin that was burning the team’s time.',
-        features: [
-          {
-            title: 'Impact-led storytelling',
-            body: 'Programmes and outcomes sit front and centre so donors understand where money goes.',
-          },
-          {
-            title: 'Simple giving',
-            body: 'One-off and monthly donations that feel trustworthy and take minutes.',
-          },
-          {
-            title: 'Quiet automation',
-            body: 'Receipts and CRM updates happen in the background — no spreadsheet chase.',
-          },
-        ],
-        visuals: [
-          {
-            src: img('photo-1497366754035-f200968a6e72'),
-            alt: 'BrightFutures Trust homepage',
-            caption: 'Warm, human homepage with a clear give CTA',
-          },
-          {
-            src: img('photo-1461749280684-dccba630e2f6', 1200),
-            alt: 'Programmes pages',
-            caption: 'Programme pages that explain impact without jargon',
-          },
-          {
-            src: img('photo-1524758631624-e2822e304c36', 1200),
-            alt: 'Donation experience',
-            caption: 'Donation flow designed for confidence, not complexity',
-          },
-        ],
-        journey: [
-          {
-            step: '01',
-            title: 'Connect',
-            body: 'A supporter arrives and immediately sees who the charity helps.',
-          },
-          {
-            step: '02',
-            title: 'Understand',
-            body: 'Programme pages make the need and the outcome feel concrete.',
-          },
-          {
-            step: '03',
-            title: 'Give',
-            body: 'They donate once or monthly — and get instant confirmation.',
-          },
-        ],
-        tools: ['Next.js', 'Donation platform', 'CRM sync', 'Email receipts'],
-        outcomes: [
-          { value: '+52%', label: 'Online donations' },
-          { value: '8 hrs', label: 'Admin saved each week' },
-          { value: '+31%', label: 'Forms completed' },
-        ],
-        note: {
-          label: 'Demo note',
-          body: 'Happy to walk through the live donation journey and behind-the-scenes automation on a short call.',
-        },
-      },
+      title: 'Drip',
+      category: 'Restaurants',
+      type: 'Logo & Branding',
+      year: '2022',
+      image: '/images/work/drip/logo.svg',
+      description: 'A logo and brand system for a new restaurant.',
+      deliverables: ['Logo design', 'Branding'],
     },
     {
       id: 3,
-      slug: 'volt-energy',
-      title: 'Volt Energy',
-      category: 'Energy Industry',
-      type: 'Web Application',
-      year: '2024',
-      image: img('photo-1597673030062-0a0f1a801a31', 1200),
+      slug: 'faith-uk',
+      title: 'F.A.I.T.H',
+      category: 'Charity & Non-Profit',
+      type: 'Website Design & Development',
+      year: '2026',
+      image: '/images/work/faith/hero.png',
       description:
-        'A customer account app that makes bills and usage clear — and cuts support calls.',
-      deliverables: ['UX/UI design', 'Web app', 'Migration'],
+        'A modern website introducing F.A.I.T.H, a UK organisation supporting Imams, teachers and holistic support workers while encouraging visitors to participate in nationwide research.',
+      deliverables: [
+        'Website Design',
+        'Responsive Development',
+        'Brand Identity',
+        'Survey Integration',
+        'SEO Foundations',
+      ],
       caseStudy: {
         seo: {
-          title: 'Volt Energy Case Study | Digital Pillars',
+          title: 'F.A.I.T.H Website Case Study | Digital Pillars',
           description:
-            'A customer account app for Volt Energy that cut support calls and made bills and usage easy to understand.',
+            'How Digital Pillars designed and built the launch website for F.A.I.T.H to establish credibility, communicate its mission and encourage nationwide survey participation.',
         },
         headline:
-          'Customers get answers themselves — without calling the call centre.',
-        heroImage: img('photo-1597673030062-0a0f1a801a31'),
+          'Launching a new national organisation with a website designed to build trust and encourage community participation.',
+        heroImage: '/images/work/faith/hero.png',
         overview: [
-          { label: 'Client', value: 'Volt Energy' },
-          { label: 'Industry', value: 'Energy' },
-          { label: 'Deliverable', value: 'Customer web app' },
-          { label: 'Year', value: '2024' },
+          {
+            label: 'Website',
+            value: 'https://faithuk.org',
+          },
+          {
+            label: 'Industry',
+            value: 'Community Organisation',
+          },
+          {
+            label: 'Project',
+            value: 'Website',
+          },
+          {
+            label: 'Objective',
+            value: 'Brand Awareness & Survey Responses',
+          },
+          {
+            label: 'Timeline',
+            value: '4 Weeks',
+          },
         ],
         challenge:
-          'Customers couldn’t see bills or usage clearly. Every simple question became a phone call — and the old portal felt unreliable.',
+          'F.A.I.T.H was a newly established organisation without an online presence. They needed a professional website that clearly explained their mission, established credibility with visitors and encouraged Imams, teachers and holistic support workers across the UK to complete a research survey. The challenge was introducing an entirely new organisation while creating enough trust for people to engage.',
+
         solution:
-          'We designed a calm account app that answers the questions people actually ask — balance, usage, bills — before they pick up the phone.',
+          "We designed a clean, accessible website centred around F.A.I.T.H's purpose and values. The content was structured to quickly explain who the organisation serves, why it exists and how visitors can get involved. Strategic calls-to-action guided users towards completing the survey while the overall design reflected professionalism, inclusivity and trust.",
+
         features: [
           {
-            title: 'Clear account home',
-            body: 'Usage, bills and balance in language customers understand.',
+            title: 'Purpose-led Homepage',
+            body: "A clear introduction explaining F.A.I.T.H's mission and the communities it supports.",
           },
           {
-            title: 'Guided help',
-            body: 'Common issues resolve in-app with clear next steps.',
+            title: 'Trust-focused Design',
+            body: 'Professional layouts, thoughtful typography and consistent branding helped establish credibility for a newly launched organisation.',
           },
           {
-            title: 'Mobile-ready',
-            body: 'Built for checking in on the go, not just at a desk.',
+            title: 'Survey-driven User Journey',
+            body: 'Calls-to-action were positioned throughout the website to maximise awareness and encourage survey participation.',
+          },
+          {
+            title: 'Fully Responsive',
+            body: 'The experience was optimised across desktop, tablet and mobile devices to ensure accessibility for every visitor.',
           },
         ],
         visuals: [
           {
-            src: img('photo-1597673030062-0a0f1a801a31'),
-            alt: 'Volt Energy dashboard',
-            caption: 'Account home that answers the first three questions',
+            src: '/images/projects/faith/home.webp',
+            alt: 'Homepage',
+            caption: 'Introducing the organisation and its mission.',
           },
           {
-            src: img('photo-1466611653911-95081537e5b7', 1200),
-            alt: 'Usage views',
-            caption: 'Usage and billing made scannable',
+            src: '/images/projects/faith/about.webp',
+            alt: 'About Page',
+            caption: 'Explaining the vision, purpose and community impact.',
           },
           {
-            src: img('photo-1531973576160-7125cd663d86', 1200),
-            alt: 'Support flows',
-            caption: 'Help paths that reduce avoidable calls',
+            src: '/images/projects/faith/survey.webp',
+            alt: 'Survey Call To Action',
+            caption: 'Designed to encourage visitor participation.',
           },
         ],
         journey: [
           {
             step: '01',
-            title: 'Sign in',
-            body: 'A customer opens the app to check something simple.',
+            title: 'Understanding the Mission',
+            body: 'We worked closely with the organisation to understand its purpose, audience and long-term goals before planning the website structure.',
           },
           {
             step: '02',
-            title: 'See clearly',
-            body: 'Balance, usage and latest bill are obvious in seconds.',
+            title: 'Designing for Trust',
+            body: 'The interface was designed to feel welcoming, credible and easy to navigate while reflecting the professionalism of the organisation.',
           },
           {
             step: '03',
-            title: 'Resolve',
-            body: 'If they need help, guided support finishes the job.',
+            title: 'Building the Experience',
+            body: 'The website was developed with performance, responsiveness and accessibility in mind to provide a smooth experience on every device.',
+          },
+          {
+            step: '04',
+            title: 'Encouraging Action',
+            body: "The final experience focused on guiding visitors towards completing the national survey and supporting the organisation's launch.",
           },
         ],
-        tools: ['React', 'Secure login', 'Billing APIs', 'Support tickets'],
+        tools: [
+          'Custom Website',
+          'Responsive Design',
+          'SEO Best Practices',
+          'Survey Integration',
+          'Performance Optimisation',
+        ],
         outcomes: [
-          { value: '−27%', label: 'Support tickets' },
-          { value: '64%', label: 'Self-serve rate' },
-          { value: '+18', label: 'Portal satisfaction' },
+          {
+            value: 'New',
+            label: 'Professional Online Presence',
+          },
+          {
+            value: 'UK',
+            label: 'Nationwide Audience',
+          },
+          {
+            value: 'Mobile',
+            label: 'Responsive Experience',
+          },
+          {
+            value: 'Clear',
+            label: 'Survey Journey',
+          },
         ],
         note: {
-          label: 'Client note',
-          body: '“Our phone queue got quieter within weeks — customers can finally help themselves.”',
-          attribution: 'Head of Customer, Volt Energy',
+          label: 'Project Goal',
+          body: "The website successfully launched F.A.I.T.H's digital presence and provided a trusted platform to introduce the organisation while encouraging visitors to participate in its nationwide survey.",
         },
       },
     },
@@ -506,7 +472,12 @@ export const ourWork = {
             body: 'No phone call — and staff get a cleaner request if needed.',
           },
         ],
-        tools: ['Secure login', 'Housing systems', 'Accessible UI', 'Notifications'],
+        tools: [
+          'Secure login',
+          'Housing systems',
+          'Accessible UI',
+          'Notifications',
+        ],
         outcomes: [
           { value: '−22%', label: 'Call volume' },
           { value: '71%', label: 'Repairs logged online' },

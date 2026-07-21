@@ -91,38 +91,6 @@ export default function About() {
         </div>
       </section>
 
-      {/* OFFICE PHOTOS */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10">
-          {about.officeImages.map((img, i) => (
-            <Reveal key={img.src} delay={i * 0.1} className={img.className}>
-              <div className="overflow-hidden rounded border border-white/10">
-                <motion.img
-                  src={img.src}
-                  alt={img.alt}
-                  className="aspect-[4/5] w-full object-cover md:aspect-[4/3]"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal className="mt-16">
-          <p className="overline text-white/40">{about.industries.eyebrow}</p>
-          <div className="mt-5 flex flex-wrap gap-3">
-            {INDUSTRIES.map((i) => (
-              <span
-                key={i}
-                className="rounded-full border border-white/15 px-5 py-2 text-white/70"
-              >
-                {i}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-      </section>
-
       <FinalCta />
     </div>
   );

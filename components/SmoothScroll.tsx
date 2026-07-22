@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { ReactLenis } from 'lenis/react';
 import { useReducedMotion } from 'framer-motion';
 import 'lenis/dist/lenis.css';
@@ -10,8 +11,11 @@ type SmoothScrollProps = {
 
 export function SmoothScroll({ children }: SmoothScrollProps) {
   const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
 
-  if (reduceMotion) {
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted || reduceMotion) {
     return <>{children}</>;
   }
 

@@ -27,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-GB" className={cabinetGrotesk.variable}>
-      <body className={cn(cabinetGrotesk.className, 'font-sans antialiased')}>
+      <body
+        suppressHydrationWarning
+        className={cn(cabinetGrotesk.className, 'font-sans antialiased')}
+      >
         <PageShell>{children}</PageShell>
         {/* <Toaster position="bottom-right" theme="dark" /> */}
       </body>

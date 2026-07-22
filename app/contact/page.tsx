@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { ArrowRight, Calendar, ChevronRight, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
@@ -17,8 +16,6 @@ import {
 
 export default function Contact() {
   useSeo(contact.seo);
-  const [faqReady, setFaqReady] = useState(false);
-  useEffect(() => setFaqReady(true), []);
 
   return (
     <div data-testid="contact-page">
@@ -153,35 +150,25 @@ export default function Contact() {
               </h2>
             </Reveal>
             <div className="md:col-span-8">
-              {faqReady ? (
-                <Accordion className="w-full">
-                  {contact.faqs.items.map((f, i) => (
-                    <AccordionItem
-                      key={f.q}
-                      value={`item-${i}`}
-                      className="border-white/10"
+              <Accordion className="w-full">
+                {contact.faqs.items.map((f, i) => (
+                  <AccordionItem
+                    key={f.q}
+                    value={`item-${i}`}
+                    className="border-white/10"
+                  >
+                    <AccordionTrigger
+                      data-testid={`contact-faq-trigger-${i}`}
+                      className="py-6 text-left font-display text-xl text-white hover:text-brand-cyan hover:no-underline md:text-2xl"
                     >
-                      <AccordionTrigger
-                        data-testid={`contact-faq-trigger-${i}`}
-                        className="py-6 text-left font-display text-xl text-white hover:text-brand-cyan hover:no-underline md:text-2xl"
-                      >
-                        {f.q}
-                      </AccordionTrigger>
-                      <AccordionContent className="pb-6 text-white/60 md:text-lg">
-                        {f.a}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              ) : (
-                <ul className="space-y-6">
-                  {contact.faqs.items.map((f) => (
-                    <li key={f.q} className="border-b border-white/10 pb-6">
-                      <p className="font-display text-xl md:text-2xl">{f.q}</p>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                      {f.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-6 text-white/60 md:text-lg">
+                      {f.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </div>

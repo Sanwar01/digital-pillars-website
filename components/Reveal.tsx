@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import { motion, useReducedMotion, type Easing } from 'framer-motion';
 
 export const EASE: Easing = [0.22, 1, 0.36, 1];
@@ -27,6 +30,7 @@ type KineticHeadlineProps = {
   className?: string;
   delay?: number;
 };
+
 export function Reveal({
   children,
   delay = 0,
@@ -35,6 +39,15 @@ export function Reveal({
   as = 'div',
 }: RevealProps) {
   const reduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    const Tag = as;
+    return <Tag className={className}>{children}</Tag>;
+  }
+
   const MotionTag = revealMotionTags[as];
   return (
     <MotionTag
@@ -55,6 +68,22 @@ export function KineticHeadline({
   delay = 0,
 }: KineticHeadlineProps) {
   const reduce = useReducedMotion();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) {
+    return (
+      <span className={className}>
+        {lines.map((line, i) => (
+          <span key={i} className="block">
+            {line}
+          </span>
+        ))}
+      </span>
+    );
+  }
+
   return (
     <span className={className}>
       {lines.map((line, i) => (

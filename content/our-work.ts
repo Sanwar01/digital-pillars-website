@@ -5,8 +5,10 @@ export type CaseStudy = {
   heroImage: string;
   /** Project overview facts */
   overview: { label: string; value: string }[];
-  challenge: string;
-  solution: string;
+  /** Plain-language problem paragraphs */
+  challenge: string[];
+  /** What we built — what it is + what it aims to achieve */
+  solution: string[];
   features: { title: string; body: string }[];
   visuals: { src: string; alt: string; caption?: string }[];
   journey: { step: string; title: string; body: string }[];
@@ -50,7 +52,9 @@ export const ourWork = {
     backLabel: 'All work',
     overviewEyebrow: 'Project overview',
     challengeEyebrow: 'The challenge',
-    solutionEyebrow: 'The solution',
+    challengeHeadline: 'What held them back.',
+    aboutEyebrow: 'About the project',
+    aboutHeadline: 'What we built.',
     featuresEyebrow: 'Key features',
     visualsEyebrow: 'Visual breakdown',
     journeyEyebrow: 'User journey',
@@ -87,10 +91,14 @@ export const ourWork = {
           },
           { label: 'Timeline', value: '6 Weeks' },
         ],
-        challenge:
-          'Their old site looked dated and buried good stock. Buyers bounced on mobile, and agents spent too long chasing leads that never arrived.',
-        solution:
-          'We rebuilt the experience around property search and enquiry — then gave agents a simple portal so listings stay fresh without IT headaches.',
+        challenge: [
+          'Their old site looked dated and buried strong listings under clutter. Buyers bounced on mobile before they found what they needed.',
+          'Agents spent too long chasing leads that never arrived — and updating stock felt harder than it should.',
+        ],
+        solution: [
+          'Greenfield Estates is a conversion-led website and agent portal for a modern estate agency. It is designed to put properties first, make enquiries simple, and help agents keep listings fresh without IT headaches.',
+          'The goal was to create a premium first impression that builds trust with buyers and sellers, and to drive more viewings and valuation requests through a clear, visible contact flow.',
+        ],
         features: [
           {
             title: 'Property-first browsing',
@@ -173,10 +181,8 @@ export const ourWork = {
       description:
         'A modern website introducing F.A.I.T.H, a UK organisation supporting Imams, teachers and holistic support workers while encouraging visitors to participate in nationwide research.',
       deliverables: [
-        'Website Design',
+        'Landing Page Design',
         'Responsive Development',
-        'Brand Identity',
-        'Survey Integration',
         'SEO Foundations',
       ],
       caseStudy: {
@@ -199,7 +205,7 @@ export const ourWork = {
           },
           {
             label: 'Project',
-            value: 'Website',
+            value: 'Launch website',
           },
           {
             label: 'Objective',
@@ -210,12 +216,14 @@ export const ourWork = {
             value: '4 Weeks',
           },
         ],
-        challenge:
-          'F.A.I.T.H was a newly established organisation without an online presence. They needed a professional website that clearly explained their mission, established credibility with visitors and encouraged Imams, teachers and holistic support workers across the UK to complete a research survey. The challenge was introducing an entirely new organisation while creating enough trust for people to engage.',
-
-        solution:
-          "We designed a clean, accessible website centred around F.A.I.T.H's purpose and values. The content was structured to quickly explain who the organisation serves, why it exists and how visitors can get involved. Strategic calls-to-action guided users towards completing the survey while the overall design reflected professionalism, inclusivity and trust.",
-
+        challenge: [
+          'F.A.I.T.H was a newly established organisation without an online presence. Visitors had no clear place to understand the mission or decide whether to get involved.',
+          'They needed enough credibility for Imams, teachers and holistic support workers across the UK to trust the organisation — and complete a nationwide research survey.',
+        ],
+        solution: [
+          'faithuk.org is the launch website for F.A.I.T.H, a UK organisation supporting Imams, teachers and holistic support workers. It is designed to explain the mission quickly, build trust with first-time visitors, and make it easy to take part in nationwide research.',
+          'The goal was to introduce a new organisation with a premium, serious first impression, and to generate survey responses through a simple, visible participation journey.',
+        ],
         features: [
           {
             title: 'Purpose-led Homepage',
@@ -330,10 +338,14 @@ export const ourWork = {
           { label: 'Deliverable', value: 'Brand & website' },
           { label: 'Year', value: '2025' },
         ],
-        challenge:
-          'Quay had strong relationships but a weak first impression online. Founders couldn’t tell what was on offer — or how to apply.',
-        solution:
-          'We shaped a confident brand and a fast site that makes the offer obvious: who it’s for, what you get, and how to start.',
+        challenge: [
+          'Quay had strong relationships offline, but a weak first impression online. Founders couldn’t quickly tell what was on offer.',
+          'Without clarity, the right people bounced — and applications that should have been easy never started.',
+        ],
+        solution: [
+          'Quay Startups is a brand and launch website for a Manchester venture studio. It is designed to make the offer obvious — who it is for, what founders get, and how to apply.',
+          'The goal was to create a confident digital presence that matches the quality of their network, and to attract better-fit applications through a clear next step.',
+        ],
         features: [
           {
             title: 'Clear positioning',
@@ -420,10 +432,14 @@ export const ourWork = {
           { label: 'Deliverable', value: 'Resident portal' },
           { label: 'Year', value: '2024' },
         ],
-        challenge:
-          'Residents phoned for balances, repairs and paperwork. Staff were overloaded, and the old tools weren’t easy enough for everyone.',
-        solution:
-          'We built an accessible portal focused on the tasks residents actually need — rent, repairs and documents — in plain language.',
+        challenge: [
+          'Residents phoned for balances, repairs and paperwork because the old tools were hard to use. Staff time disappeared into routine requests.',
+          'The association needed a portal that felt approachable for every resident — not just the digitally confident.',
+        ],
+        solution: [
+          'Pennine Housing’s resident portal is a self-serve home for rent, repairs and documents. It is designed to answer everyday questions without a phone call.',
+          'The goal was to reduce call volume, make common tasks feel simple on mobile, and free staff to focus on residents who need real support.',
+        ],
         features: [
           {
             title: 'Rent at a glance',
@@ -516,10 +532,14 @@ export const ourWork = {
           { label: 'Deliverable', value: 'Product dashboard' },
           { label: 'Year', value: '2025' },
         ],
-        challenge:
-          'The product was powerful, but people couldn’t see what the AI was doing. Without trust, insights sat unused.',
-        solution:
-          'We designed a dashboard that shows what matters, why it matters, and what to do next — so teams act instead of second-guess.',
+        challenge: [
+          'Meridian’s product was powerful, but users couldn’t see what the AI was doing. Insights looked clever — and still went unused.',
+          'Without trust and clear next steps, the dashboard became something people opened once and abandoned.',
+        ],
+        solution: [
+          'Meridian AI is a product dashboard for teams who need to act on automated insights every day. It is designed to show what matters, why it matters, and what to do next.',
+          'The goal was to make AI feel clear enough to trust, simple enough for daily use, and focused on decisions — not noise.',
+        ],
         features: [
           {
             title: 'Trusted insights',
@@ -606,10 +626,14 @@ export const ourWork = {
           { label: 'Deliverable', value: 'Website redesign' },
           { label: 'Year', value: '2024' },
         ],
-        challenge:
-          'The site felt generic and weak on mobile. Landlord leads were hard to find, and property search felt like hard work.',
-        solution:
-          'We redesigned around two clear journeys — find a home, and instruct as a landlord — with a stronger local presence.',
+        challenge: [
+          'The old site felt generic and weak on mobile. Tenants struggled to browse, and landlord leads were easy to miss.',
+          'Salford Lettings needed one site that served two audiences without confusing either.',
+        ],
+        solution: [
+          'Salford Lettings is a website redesign for a busy local agency. It is designed around two clear paths — find a home as a tenant, or instruct as a landlord.',
+          'The goal was a stronger local first impression, easier property browsing on phones, and more landlord valuation requests through visible calls-to-action.',
+        ],
         features: [
           {
             title: 'Dual-path homepage',

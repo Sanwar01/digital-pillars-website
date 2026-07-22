@@ -56,16 +56,15 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                 <dt className="text-sm text-white/40">{item.label}</dt>
                 <dd className="mt-2 font-display text-lg text-white md:text-xl">
                   {item.label === 'Website' ? (
-                    <div className="flex items-center gap-2">
-                      <Link
-                        href={item.value}
-                        target="_blank"
-                        className="transition-colors hover:text-brand-cyan"
-                      >
-                        {item.value}
-                        <ExternalLink className="h-4 w-4 inline-block ml-2" />
-                      </Link>
-                    </div>
+                    <Link
+                      href={item.value}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 transition-colors hover:text-brand-cyan"
+                    >
+                      {item.value}
+                      <ExternalLink className="h-4 w-4 shrink-0" aria-hidden />
+                    </Link>
                   ) : (
                     item.value
                   )}
@@ -78,23 +77,47 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
 
       {/* 3. THE CHALLENGE */}
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
-        <Reveal className="max-w-3xl">
-          <p className="overline text-brand-cyan">{copy.challengeEyebrow}</p>
-          <p className="mt-6 font-display text-3xl leading-tight md:text-4xl lg:text-[2.75rem]">
-            {caseStudy.challenge}
-          </p>
-        </Reveal>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-5">
+            <p className="overline text-brand-cyan">{copy.challengeEyebrow}</p>
+            <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
+              {copy.challengeHeadline}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} className="space-y-6 lg:col-span-7">
+            {caseStudy.challenge.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 40)}
+                className="text-lg leading-relaxed text-white/65 md:text-xl"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </Reveal>
+        </div>
       </section>
 
-      {/* 4. THE SOLUTION */}
+      {/* 4. ABOUT / WHAT WE BUILT */}
       <section className="border-y border-white/10 bg-brand-navy-light">
         <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
-          <Reveal className="max-w-3xl">
-            <p className="overline text-brand-cyan">{copy.solutionEyebrow}</p>
-            <p className="mt-6 text-xl leading-relaxed text-white/75 md:text-2xl">
-              {caseStudy.solution}
-            </p>
-          </Reveal>
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+            <Reveal className="lg:col-span-5">
+              <p className="overline text-brand-cyan">{copy.aboutEyebrow}</p>
+              <h2 className="mt-5 font-display text-4xl leading-tight sm:text-5xl">
+                {copy.aboutHeadline}
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1} className="space-y-6 lg:col-span-7">
+              {caseStudy.solution.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 40)}
+                  className="text-lg leading-relaxed text-white/65 md:text-xl"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </Reveal>
+          </div>
         </div>
       </section>
 

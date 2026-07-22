@@ -122,36 +122,37 @@ export const ourWork = {
           {
             src: '/images/work/greenfield-estates/homepage.png',
             alt: 'Greenfield Estates homepage',
-            caption: 'Homepage',
+            caption:
+              'A simple, clean homepage that leads with the offer, not fluff.',
           },
           {
             src: '/images/work/greenfield-estates/homepage-listing-section.png',
             alt: 'Property listing',
-            caption: 'Property listing',
+            caption: 'Property listings designed for scannability on mobile.',
             layout: 'half',
           },
           {
             src: '/images/work/greenfield-estates/services.png',
             alt: 'Greenfield Estates services',
-            caption: 'Services',
+            caption: 'Services offered by Greenfield Estates.',
             layout: 'half',
           },
           {
             src: '/images/work/greenfield-estates/client-testimonials.png',
             alt: 'Greenfield Estates client testimonials',
-            caption: 'Client testimonials',
+            caption: 'Client testimonials from Greenfield Estates.',
             layout: 'full',
           },
           {
             src: '/images/work/greenfield-estates/property-detail-page.png',
             alt: 'Property details page',
-            caption: 'Property details page',
+            caption: 'Property details page for a specific property.',
             layout: 'full',
           },
           {
             src: '/images/work/greenfield-estates/contact.png',
             alt: 'Contact form',
-            caption: 'Contact form',
+            caption: 'Contact form for enquiries with different options.',
             layout: 'full',
           },
         ],
@@ -176,7 +177,7 @@ export const ourWork = {
         outcomes: [
           { value: '+38%', label: 'More enquiries' },
           { value: '+24%', label: 'More valuation requests' },
-          { value: '2×', label: 'Faster on mobile' },
+          { value: '2×', label: 'Faster page load times' },
         ],
         note: {
           label: 'Client note',
@@ -269,18 +270,33 @@ export const ourWork = {
         ],
         visuals: [
           {
-            src: '/images/projects/faith/home.webp',
+            src: '/images/work/faith/homepage.png',
             alt: 'Homepage',
             caption: 'Introducing the organisation and its mission.',
           },
           {
-            src: '/images/projects/faith/about.webp',
-            alt: 'About Page',
+            src: '/images/work/faith/challenge.png',
+            alt: 'Challenge page',
             caption: 'Explaining the vision, purpose and community impact.',
+            layout: 'half',
           },
           {
-            src: '/images/projects/faith/survey.webp',
-            alt: 'Survey Call To Action',
+            src: '/images/work/faith/mission.png',
+            alt: 'Mission page',
+            caption:
+              "Providing clarity on the organisation's purpose and community impact.",
+            layout: 'half',
+          },
+          {
+            src: '/images/work/faith/survey-section.png',
+            alt: 'Survey section',
+            caption:
+              'Encouraging visitors to participate in the nationwide survey.',
+            layout: 'full',
+          },
+          {
+            src: '/images/work/faith/enquiry.png',
+            alt: 'Enquiry form',
             caption: 'Designed to encourage visitor participation.',
           },
         ],
@@ -315,422 +331,24 @@ export const ourWork = {
         ],
         outcomes: [
           {
-            value: 'New',
-            label: 'Professional Online Presence',
+            value: '+10%',
+            label: 'More survey responses',
           },
           {
-            value: 'UK',
-            label: 'Nationwide Audience',
+            value: 'UK-wide',
+            label: 'More survey responses from the UK',
           },
           {
-            value: 'Mobile',
-            label: 'Responsive Experience',
+            value: 'Visbility',
+            label: 'Increased visibility of the organisation online',
           },
-          {
-            value: 'Clear',
-            label: 'Survey Journey',
-          },
-        ],
-        note: {
-          label: 'Project Goal',
-          body: "The website successfully launched F.A.I.T.H's digital presence and provided a trusted platform to introduce the organisation while encouraging visitors to participate in its nationwide survey.",
-        },
-      },
-    },
-    {
-      id: 4,
-      slug: 'quay-startups',
-      title: 'Quay Startups',
-      category: 'Startups',
-      type: 'Brand & Website',
-      year: '2025',
-      image: img('photo-1461749280684-dccba630e2f6', 1200),
-      description:
-        'Brand and launch website that helps founders understand the offer — and apply.',
-      deliverables: ['Brand identity', 'UX/UI design', 'Website'],
-      caseStudy: {
-        seo: {
-          title: 'Quay Startups Case Study | Digital Pillars',
-          description:
-            'A confident brand and launch website that helps Quay Startups attract the right founders and partners.',
-        },
-        headline:
-          'A digital presence that finally matched the quality of their network.',
-        heroImage: img('photo-1461749280684-dccba630e2f6'),
-        overview: [
-          { label: 'Client', value: 'Quay Startups' },
-          { label: 'Industry', value: 'Startups' },
-          { label: 'Deliverable', value: 'Brand & website' },
-          { label: 'Year', value: '2025' },
-        ],
-        challenge: [
-          'Quay had strong relationships offline, but a weak first impression online. Founders couldn’t quickly tell what was on offer.',
-          'Without clarity, the right people bounced — and applications that should have been easy never started.',
-        ],
-        solution: [
-          'Quay Startups is a brand and launch website for a Manchester venture studio. It is designed to make the offer obvious — who it is for, what founders get, and how to apply.',
-          'The goal was to create a confident digital presence that matches the quality of their network, and to attract better-fit applications through a clear next step.',
-        ],
-        features: [
-          {
-            title: 'Clear positioning',
-            body: 'A brand system that feels ambitious without startup jargon.',
-          },
-          {
-            title: 'Programme clarity',
-            body: 'Pages that spell out fit, timeline and outcomes.',
-          },
-          {
-            title: 'Application paths',
-            body: 'Founders and partners get in touch through the right door.',
-          },
-        ],
-        visuals: [
-          {
-            src: img('photo-1461749280684-dccba630e2f6'),
-            alt: 'Quay Startups homepage',
-            caption: 'Homepage that leads with the offer, not fluff',
-          },
-          {
-            src: img('photo-1531973576160-7125cd663d86', 1200),
-            alt: 'Programme overview',
-            caption: 'Programme pages with obvious next steps',
-          },
-          {
-            src: img('photo-1542393545-10f5cde2c810', 1200),
-            alt: 'Brand detail',
-            caption: 'Brand system carried through the full site',
-          },
-        ],
-        journey: [
-          {
-            step: '01',
-            title: 'Arrive',
-            body: 'A founder lands and immediately understands who Quay is for.',
-          },
-          {
-            step: '02',
-            title: 'Explore',
-            body: 'Programmes explain the path without a sales call first.',
-          },
-          {
-            step: '03',
-            title: 'Apply',
-            body: 'A short application starts a real conversation.',
-          },
-        ],
-        tools: ['Figma', 'Next.js', 'CMS', 'Analytics'],
-        outcomes: [
-          { value: '+41%', label: 'Qualified applications' },
-          { value: '2.1×', label: 'Time on site' },
-          { value: '−19%', label: 'Bounce rate' },
-        ],
-        note: {
-          label: 'Demo note',
-          body: 'We can share the brand system and live site walkthrough on a 15-minute call.',
-        },
-      },
-    },
-    {
-      id: 5,
-      slug: 'pennine-housing',
-      title: 'Pennine Housing',
-      category: 'Housing Associations',
-      type: 'Resident Portal',
-      year: '2024',
-      image: img('photo-1497366811353-6870744d04b2', 1200),
-      description:
-        'A resident portal for rent, repairs and documents — less phone queue, more self-serve.',
-      deliverables: ['UX/UI design', 'Web app', 'Low code'],
-      caseStudy: {
-        seo: {
-          title: 'Pennine Housing Case Study | Digital Pillars',
-          description:
-            'A resident portal that made rent, repairs and documents easier for Pennine Housing tenants — and quieter for the call centre.',
-        },
-        headline:
-          'Everyday housing tasks online — so residents don’t need to call.',
-        heroImage: img('photo-1497366811353-6870744d04b2'),
-        overview: [
-          { label: 'Client', value: 'Pennine Housing' },
-          { label: 'Industry', value: 'Housing' },
-          { label: 'Deliverable', value: 'Resident portal' },
-          { label: 'Year', value: '2024' },
-        ],
-        challenge: [
-          'Residents phoned for balances, repairs and paperwork because the old tools were hard to use. Staff time disappeared into routine requests.',
-          'The association needed a portal that felt approachable for every resident — not just the digitally confident.',
-        ],
-        solution: [
-          'Pennine Housing’s resident portal is a self-serve home for rent, repairs and documents. It is designed to answer everyday questions without a phone call.',
-          'The goal was to reduce call volume, make common tasks feel simple on mobile, and free staff to focus on residents who need real support.',
-        ],
-        features: [
-          {
-            title: 'Rent at a glance',
-            body: 'Balance and payment history without the phone queue.',
-          },
-          {
-            title: 'Repairs with status',
-            body: 'Log a job and track progress without chasing updates.',
-          },
-          {
-            title: 'Document centre',
-            body: 'The paperwork tenants need, when they need it.',
-          },
-        ],
-        visuals: [
-          {
-            src: img('photo-1497366811353-6870744d04b2'),
-            alt: 'Resident portal home',
-            caption: 'Portal home designed for clarity, not clutter',
-          },
-          {
-            src: img('photo-1497366754035-f200968a6e72', 1200),
-            alt: 'Repairs view',
-            caption: 'Repair logging with clear status',
-          },
-          {
-            src: img('photo-1524758631624-e2822e304c36', 1200),
-            alt: 'Mobile experience',
-            caption: 'Built to work on the phones residents actually use',
-          },
-        ],
-        journey: [
-          {
-            step: '01',
-            title: 'Log in',
-            body: 'A resident opens the portal for a simple account task.',
-          },
-          {
-            step: '02',
-            title: 'Complete',
-            body: 'They check rent, raise a repair or download a document.',
-          },
-          {
-            step: '03',
-            title: 'Done',
-            body: 'No phone call — and staff get a cleaner request if needed.',
-          },
-        ],
-        tools: [
-          'Secure login',
-          'Housing systems',
-          'Accessible UI',
-          'Notifications',
-        ],
-        outcomes: [
-          { value: '−22%', label: 'Call volume' },
-          { value: '71%', label: 'Repairs logged online' },
-          { value: '4.2k+', label: 'Residents using it' },
         ],
         note: {
           label: 'Client note',
-          body: '“Residents tell us it’s the first housing portal that doesn’t feel intimidating.”',
-          attribution: 'Digital Lead, Pennine Housing',
+          body: "“The website successfully launched F.A.I.T.H's digital presence and provided a trusted platform to introduce the organisation while encouraging visitors to participate in its nationwide survey.”",
+          attribution: 'Atia Lokhat, F.A.I.T.H',
         },
       },
-    },
-    {
-      id: 6,
-      slug: 'meridian-ai',
-      title: 'Meridian AI',
-      category: 'Startups',
-      type: 'AI Product & Dashboard',
-      year: '2025',
-      image: img('photo-1531973576160-7125cd663d86', 1200),
-      description:
-        'An AI dashboard that helps teams trust insights — and act on them faster.',
-      deliverables: ['UX/UI design', 'Product UI', 'AI integration'],
-      caseStudy: {
-        seo: {
-          title: 'Meridian AI Case Study | Digital Pillars',
-          description:
-            'An AI product interface that helps teams trust insights and act faster — without drowning in complexity.',
-        },
-        headline:
-          'AI that feels clear enough to trust — and simple enough to use every day.',
-        heroImage: img('photo-1531973576160-7125cd663d86'),
-        overview: [
-          { label: 'Client', value: 'Meridian AI' },
-          { label: 'Industry', value: 'AI / SaaS' },
-          { label: 'Deliverable', value: 'Product dashboard' },
-          { label: 'Year', value: '2025' },
-        ],
-        challenge: [
-          'Meridian’s product was powerful, but users couldn’t see what the AI was doing. Insights looked clever — and still went unused.',
-          'Without trust and clear next steps, the dashboard became something people opened once and abandoned.',
-        ],
-        solution: [
-          'Meridian AI is a product dashboard for teams who need to act on automated insights every day. It is designed to show what matters, why it matters, and what to do next.',
-          'The goal was to make AI feel clear enough to trust, simple enough for daily use, and focused on decisions — not noise.',
-        ],
-        features: [
-          {
-            title: 'Trusted insights',
-            body: 'Clear context so operators know why a recommendation appeared.',
-          },
-          {
-            title: 'Action queue',
-            body: 'Next steps sit ready — not buried in charts.',
-          },
-          {
-            title: 'Daily-driver UI',
-            body: 'Built for operators who live in the product, not for demos.',
-          },
-        ],
-        visuals: [
-          {
-            src: img('photo-1531973576160-7125cd663d86'),
-            alt: 'Meridian AI dashboard',
-            caption: 'Dashboard focused on decisions, not noise',
-          },
-          {
-            src: img('photo-1597673030062-0a0f1a801a31', 1200),
-            alt: 'Insight views',
-            caption: 'Insights with enough context to trust',
-          },
-          {
-            src: img('photo-1461749280684-dccba630e2f6', 1200),
-            alt: 'Action queue',
-            caption: 'Action queue that turns insight into movement',
-          },
-        ],
-        journey: [
-          {
-            step: '01',
-            title: 'Scan',
-            body: 'An operator opens the day with a clear feed of what changed.',
-          },
-          {
-            step: '02',
-            title: 'Trust',
-            body: 'Context and confidence make the insight feel dependable.',
-          },
-          {
-            step: '03',
-            title: 'Act',
-            body: 'They complete the next step without leaving the product.',
-          },
-        ],
-        tools: ['React', 'Design system', 'AI APIs', 'Realtime updates'],
-        outcomes: [
-          { value: '−45%', label: 'Time to insight' },
-          { value: '3.4×', label: 'Actions completed' },
-          { value: '92%', label: 'Pilot retention' },
-        ],
-        note: {
-          label: 'Demo note',
-          body: 'We can walk through a recorded product demo and the design decisions behind the dashboard.',
-        },
-      },
-    },
-    {
-      id: 7,
-      slug: 'salford-lettings',
-      title: 'Salford Lettings',
-      category: 'Estate Agents',
-      type: 'Website Redesign',
-      year: '2024',
-      image: img('photo-1524758631624-e2822e304c36', 1200),
-      description:
-        'A lettings redesign built for tenants searching homes and landlords ready to instruct.',
-      deliverables: ['UX/UI design', 'Web redesign', 'SEO'],
-      caseStudy: {
-        seo: {
-          title: 'Salford Lettings Case Study | Digital Pillars',
-          description:
-            'A lettings website redesign that won more landlord instructions and made finding a home easier on mobile.',
-        },
-        headline:
-          'Built for two audiences: tenants looking for a home, and landlords ready to instruct.',
-        heroImage: img('photo-1524758631624-e2822e304c36'),
-        overview: [
-          { label: 'Client', value: 'Salford Lettings' },
-          { label: 'Industry', value: 'Estate Agents' },
-          { label: 'Deliverable', value: 'Website redesign' },
-          { label: 'Year', value: '2024' },
-        ],
-        challenge: [
-          'The old site felt generic and weak on mobile. Tenants struggled to browse, and landlord leads were easy to miss.',
-          'Salford Lettings needed one site that served two audiences without confusing either.',
-        ],
-        solution: [
-          'Salford Lettings is a website redesign for a busy local agency. It is designed around two clear paths — find a home as a tenant, or instruct as a landlord.',
-          'The goal was a stronger local first impression, easier property browsing on phones, and more landlord valuation requests through visible calls-to-action.',
-        ],
-        features: [
-          {
-            title: 'Dual-path homepage',
-            body: 'Tenants and landlords each get a clear way in.',
-          },
-          {
-            title: 'Better property browsing',
-            body: 'Faster filters and cards that work properly on phones.',
-          },
-          {
-            title: 'Landlord CTAs',
-            body: 'Valuation and instruction asks sit where they convert.',
-          },
-        ],
-        visuals: [
-          {
-            src: img('photo-1524758631624-e2822e304c36'),
-            alt: 'Salford Lettings homepage',
-            caption: 'Homepage that serves two audiences without confusion',
-          },
-          {
-            src: img('photo-1542393545-10f5cde2c810', 1200),
-            alt: 'Property search',
-            caption: 'Search that feels light on mobile',
-          },
-          {
-            src: img('photo-1497366754035-f200968a6e72', 1200),
-            alt: 'Landlord journey',
-            caption: 'Landlord path with a confident next step',
-          },
-        ],
-        journey: [
-          {
-            step: '01',
-            title: 'Choose a path',
-            body: 'Visitor picks tenant or landlord from the first screen.',
-          },
-          {
-            step: '02',
-            title: 'Browse or instruct',
-            body: 'Tenants search homes; landlords see why to instruct.',
-          },
-          {
-            step: '03',
-            title: 'Convert',
-            body: 'Enquiry or valuation request lands with the right team.',
-          },
-        ],
-        tools: ['Next.js', 'Property feed', 'Local SEO', 'Analytics'],
-        outcomes: [
-          { value: '+29%', label: 'Landlord leads' },
-          { value: '+33%', label: 'Organic traffic' },
-          { value: '+21%', label: 'Mobile conversions' },
-        ],
-        note: {
-          label: 'Client note',
-          body: '“Landlords finally notice us online — and tenants stop bouncing on their phones.”',
-          attribution: 'Partner, Salford Lettings',
-        },
-      },
-    },
-    {
-      id: 8,
-      slug: 'greengrid-energy',
-      title: 'GreenGrid Energy',
-      category: 'Energy Industry',
-      type: 'Digital Strategy',
-      year: '2025',
-      image: img('photo-1466611653911-95081537e5b7', 1200),
-      description:
-        'A digital strategy engagement mapping the highest-ROI next steps for growth.',
-      deliverables: ['Digital strategy', 'Roadmap', 'Workshop'],
     },
   ] as Project[],
   emptyState: 'No projects in this category yet — check back soon.',

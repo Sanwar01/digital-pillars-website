@@ -11,12 +11,67 @@ type CaseStudyViewProps = {
   project: Project & { caseStudy: CaseStudy };
 };
 
+type CaseStudyVisual = CaseStudy['visuals'][number];
+
+function groupCaseStudyVisuals(visuals: CaseStudyVisual[]) {
+  const rows: (
+    | { type: 'full'; item: CaseStudyVisual }
+    | { type: 'pair'; items: [CaseStudyVisual, CaseStudyVisual] }
+  )[] = [];
+  let pendingHalf: CaseStudyVisual | null = null;
+
+  for (const visual of visuals) {
+    const layout = visual.layout ?? 'half';
+
+    if (layout === 'full') {
+      if (pendingHalf) {
+        rows.push({ type: 'full', item: pendingHalf });
+        pendingHalf = null;
+      }
+      rows.push({ type: 'full', item: visual });
+    } else if (pendingHalf) {
+      rows.push({ type: 'pair', items: [pendingHalf, visual] });
+      pendingHalf = null;
+    } else {
+      pendingHalf = visual;
+    }
+  }
+
+  if (pendingHalf) {
+    rows.push({ type: 'full', item: pendingHalf });
+  }
+
+  return rows;
+}
+
+function CaseStudyVisual({
+  visual,
+  delay = 0,
+  className = '',
+}: {
+  visual: CaseStudyVisual;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <Reveal delay={delay} className={className}>
+      <div className="overflow-hidden rounded border border-white/10 bg-brand-navy">
+        <img src={visual.src} alt={visual.alt} className="h-auto w-full" />
+      </div>
+      {visual.caption && (
+        <p className="mt-4 text-sm text-white/45">{visual.caption}</p>
+      )}
+    </Reveal>
+  );
+}
+
 export function CaseStudyView({ project }: CaseStudyViewProps) {
   const { caseStudy } = project;
   const copy = ourWork.caseStudy;
   useSeo(caseStudy.seo);
 
   const [leadVisual, ...moreVisuals] = caseStudy.visuals;
+  const visualRows = groupCaseStudyVisuals(moreVisuals);
 
   return (
     <div data-testid="case-study-page">
@@ -149,39 +204,36 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             <p className="overline text-brand-cyan">{copy.visualsEyebrow}</p>
           </Reveal>
           {leadVisual && (
-            <Reveal delay={0.1} className="mt-10">
-              <div className="overflow-hidden rounded border border-white/10">
-                <img
-                  src={leadVisual.src}
-                  alt={leadVisual.alt}
-                  className="aspect-[16/10] w-full object-cover md:aspect-[2.2/1]"
-                />
-              </div>
-              {leadVisual.caption && (
-                <p className="mt-4 text-sm text-white/45">
-                  {leadVisual.caption}
-                </p>
-              )}
-            </Reveal>
+            <CaseStudyVisual visual={leadVisual} delay={0.1} className="mt-10" />
           )}
-          {moreVisuals.length > 0 && (
-            <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2">
-              {moreVisuals.map((visual, i) => (
-                <Reveal key={visual.src} delay={0.12 + i * 0.06}>
-                  <div className="overflow-hidden rounded border border-white/10">
-                    <img
-                      src={visual.src}
-                      alt={visual.alt}
-                      className="aspect-[4/3] w-full object-cover"
-                    />
-                  </div>
-                  {visual.caption && (
-                    <p className="mt-4 text-sm text-white/45">
-                      {visual.caption}
-                    </p>
-                  )}
-                </Reveal>
-              ))}
+          {visualRows.length > 0 && (
+            <div className="mt-8 flex flex-col gap-8">
+              {visualRows.map((row, rowIndex) => {
+                const delay = 0.12 + rowIndex * 0.06;
+
+                if (row.type === 'pair') {
+                  return (
+                    <div
+                      key={`${row.items[0].src}-${row.items[1].src}`}
+                      className="grid grid-cols-1 gap-8 md:grid-cols-2"
+                    >
+                      <CaseStudyVisual visual={row.items[0]} delay={delay} />
+                      <CaseStudyVisual
+                        visual={row.items[1]}
+                        delay={delay + 0.04}
+                      />
+                    </div>
+                  );
+                }
+
+                return (
+                  <CaseStudyVisual
+                    key={row.item.src}
+                    visual={row.item}
+                    delay={delay}
+                  />
+                );
+              })}
             </div>
           )}
         </div>

@@ -10,7 +10,12 @@ export type CaseStudy = {
   /** What we built — what it is + what it aims to achieve */
   solution: string[];
   features: { title: string; body: string }[];
-  visuals: { src: string; alt: string; caption?: string }[];
+  visuals: {
+    src: string;
+    alt: string;
+    caption?: string;
+    layout?: 'full' | 'half';
+  }[];
   journey: { step: string; title: string; body: string }[];
   /** Light, buyer-friendly tools — not a stack dump */
   tools: string[];
@@ -69,7 +74,7 @@ export const ourWork = {
       category: 'Estate Agents',
       type: 'Website & Portal',
       year: '2026',
-      image: '/images/work/greenfield-estates/hero-1.png',
+      image: '/images/work/greenfield-estates/hero.png',
       description:
         'A conversion-led website and agent portal that turns property browsers into viewings.',
       deliverables: ['UX/UI design', 'Web development', 'Admin panel'],
@@ -115,19 +120,39 @@ export const ourWork = {
         ],
         visuals: [
           {
-            src: img('photo-1542393545-10f5cde2c810'),
-            alt: 'Northern Estates homepage',
-            caption: 'Homepage built around search and featured stock',
+            src: '/images/work/greenfield-estates/homepage.png',
+            alt: 'Greenfield Estates homepage',
+            caption: 'Homepage',
           },
           {
-            src: img('photo-1524758631624-e2822e304c36', 1200),
-            alt: 'Property listing experience',
-            caption: 'Listing cards designed for scannability on mobile',
+            src: '/images/work/greenfield-estates/homepage-listing-section.png',
+            alt: 'Property listing',
+            caption: 'Property listing',
+            layout: 'half',
           },
           {
-            src: img('photo-1497366811353-6870744d04b2', 1200),
-            alt: 'Enquiry flow',
-            caption: 'Short enquiry journey from interest to booking',
+            src: '/images/work/greenfield-estates/services.png',
+            alt: 'Greenfield Estates services',
+            caption: 'Services',
+            layout: 'half',
+          },
+          {
+            src: '/images/work/greenfield-estates/client-testimonials.png',
+            alt: 'Greenfield Estates client testimonials',
+            caption: 'Client testimonials',
+            layout: 'full',
+          },
+          {
+            src: '/images/work/greenfield-estates/property-detail-page.png',
+            alt: 'Property details page',
+            caption: 'Property details page',
+            layout: 'full',
+          },
+          {
+            src: '/images/work/greenfield-estates/contact.png',
+            alt: 'Contact form',
+            caption: 'Contact form',
+            layout: 'full',
           },
         ],
         journey: [
@@ -156,7 +181,7 @@ export const ourWork = {
         note: {
           label: 'Client note',
           body: '“We finally have a site that looks as professional as the service we give in person.”',
-          attribution: 'Director, Northern Estates',
+          attribution: 'Director, Greenfield Estates',
         },
       },
     },

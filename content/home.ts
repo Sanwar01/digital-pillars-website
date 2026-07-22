@@ -1,5 +1,3 @@
-import { contact } from './contact';
-
 export const home = {
   seo: {
     title: 'Digital Pillars | Web Design & Software Agency Manchester',
@@ -46,24 +44,32 @@ export const home = {
     viewAllLabel: 'View all services',
     viewAllHref: '/services',
   },
+  workPreview: {
+    eyebrow: 'Featured projects',
+    headline: "Projects we're proud to showcase.",
+    viewAllLabel: 'See all work',
+    viewAllHref: '/our-work',
+    /** Prefer these project ids on the homepage (order preserved). */
+    projectIds: [1, 2, 3],
+  },
   testimonials: [
+    {
+      quote:
+        "The website successfully launched F.A.I.T.H's digital presence and increased the number of visitors to our nationwide survey.",
+      name: 'Atia Lokhat',
+      role: 'Director, F.A.I.T.H',
+    },
     {
       quote:
         'Digital Pillars rebuilt our platform and enquiries doubled within a quarter. They think like partners, not contractors.',
       name: 'Sarah Whitfield',
-      role: 'Director, Northern Estates',
+      role: 'Director, Greenfield Estates',
     },
     {
       quote:
-        'The automation work saved our small team days every month. Genuinely transformative for a charity our size.',
-      name: 'David Okoro',
-      role: 'Operations Lead, BrightFutures Trust',
-    },
-    {
-      quote:
-        'Fast, sharp and refreshingly honest. Our new site finally reflects the ambition of the company.',
-      name: 'Priya Nair',
-      role: 'Founder, Volt Energy',
+        'Our logo and branding perfectly captures the essence of our restaurant and our customers love it.',
+      name: 'Owner',
+      role: 'Drip',
     },
   ],
   aboutPreview: {

@@ -9,8 +9,9 @@ import { Reveal, KineticHeadline } from '@/components/Reveal';
 import { CtaButton } from '@/components/CtaButton';
 import { Marquee } from '@/components/Marquee';
 import { FinalCta } from '@/components/FinalCta';
-import { SERVICES, INDUSTRIES } from '@/content/site';
+import { SERVICES } from '@/content/site';
 import { home } from '@/content/home';
+import { ourWork } from '@/content/our-work';
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -20,6 +21,10 @@ export default function Home() {
   });
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
   const overlay = useTransform(scrollYProgress, [0, 1], [0.4, 0.8]);
+
+  const featuredWork = home.workPreview.projectIds
+    .map((id) => ourWork.projects.find((p) => p.id === id))
+    .filter((p): p is (typeof ourWork.projects)[number] => Boolean(p));
 
   return (
     <div data-testid="home-page">
@@ -98,20 +103,6 @@ export default function Home() {
 
       {/* TRUST STRIP */}
       <Marquee testId="home-marquee" />
-      <section className="mx-auto max-w-[1400px] px-6 py-14 md:px-10">
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
-          <p className="overline text-white/40 font-medium">
-            {home.trust.eyebrow}
-          </p>
-          <div className="flex flex-wrap gap-x-8 gap-y-3">
-            {INDUSTRIES.map((i) => (
-              <span key={i} className="text-white/60">
-                {i}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* MANIFESTO / BENEFITS */}
       <section data-testid="home-benefits" className="border-t border-white/10">
@@ -191,10 +182,99 @@ export default function Home() {
         </div>
       </section>
 
+      {/* OUR WORK PREVIEW */}
+      <section
+        data-testid="home-work"
+        className="border-t border-white/10 bg-brand-navy-light"
+      >
+        <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+          <Reveal className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="overline text-brand-cyan font-medium">
+                {home.workPreview.eyebrow}
+              </p>
+              <h2 className="mt-5 max-w-2xl font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
+                {home.workPreview.headline}
+              </h2>
+            </div>
+            <Link
+              href={home.workPreview.viewAllHref}
+              data-testid="work-view-all"
+              className="link-underline shrink-0 text-white/70 hover:text-white"
+            >
+              {home.workPreview.viewAllLabel}
+            </Link>
+          </Reveal>
+
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:gap-8">
+            {featuredWork.map((p, i) => {
+              const hasCaseStudy = Boolean(p.caseStudy);
+              const card = (
+                <>
+                  <div className="overflow-hidden rounded border border-white/10">
+                    <div
+                      className={`relative aspect-[4/3] w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        hasCaseStudy ? 'group-hover:scale-105' : ''
+                      }`}
+                    >
+                      <Image
+                        src={p.image}
+                        alt={`${p.title} — ${p.type} project by Digital Pillars`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
+                        unoptimized={p.image.endsWith('.svg')}
+                      />
+                    </div>
+                  </div>
+                  <div className="mt-5 flex items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <h3 className="font-display text-2xl md:text-3xl">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-white/50">
+                        {p.category} · {p.year}
+                      </p>
+                      <p className="mt-3 text-base leading-relaxed text-white/65">
+                        {p.description}
+                      </p>
+                    </div>
+                    {hasCaseStudy && (
+                      <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-white/30 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-brand-cyan" />
+                    )}
+                  </div>
+                </>
+              );
+
+              return (
+                <Reveal key={p.id} delay={i * 0.08}>
+                  {hasCaseStudy ? (
+                    <Link
+                      href={`/our-work/${p.slug}`}
+                      data-testid={`home-project-${p.id}`}
+                      className="group block"
+                    >
+                      {card}
+                    </Link>
+                  ) : (
+                    <div
+                      data-testid={`home-project-${p.id}`}
+                      className="block"
+                    >
+                      {card}
+                    </div>
+                  )}
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS */}
       <section
         data-testid="home-testimonials"
-        className="border-y border-white/10 bg-brand-navy-light"
+        className="border-b border-white/10"
       >
         <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
           <Reveal>

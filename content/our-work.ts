@@ -69,135 +69,6 @@ export const ourWork = {
   projects: [
     {
       id: 1,
-      slug: 'greenfield-estates',
-      title: 'Greenfield Estates',
-      category: 'Estate Agents',
-      type: 'Website & Portal',
-      year: '2026',
-      image: '/images/work/greenfield-estates/hero.png',
-      description:
-        'A conversion-led website and agent portal that turns property browsers into viewings.',
-      deliverables: ['UX/UI design', 'Web development', 'Admin panel'],
-      caseStudy: {
-        seo: {
-          title: 'Greenfield Estates — Estate Agent Website Case Study',
-          description:
-            'How Digital Pillars built a conversion-led estate agent website and portal that turned more browsers into viewings and valuation requests.',
-        },
-        headline:
-          'More viewings. Clearer listings. A site that sells the property — not the template. Powered by our own software, so you can update listings and manage enquiries yourself.',
-        heroImage: '/images/work/greenfield-estates/hero.png',
-        overview: [
-          { label: 'Industry', value: 'Estate Agents' },
-          { label: 'Project', value: 'Website & portal' },
-          {
-            label: 'Objective',
-            value: 'More viewings & clearer listings.',
-          },
-          { label: 'Timeline', value: '6 Weeks' },
-        ],
-        challenge: [
-          'Their old site looked dated and buried strong listings under clutter. Buyers bounced on mobile before they found what they needed.',
-          'Agents spent too long chasing leads that never arrived — and updating stock felt harder than it should.',
-        ],
-        solution: [
-          'Greenfield Estates is a conversion-led website and agent portal for a modern estate agency. It is designed to put properties first, make enquiries simple, and help agents keep listings fresh without IT headaches.',
-          'The goal was to create a premium first impression that builds trust with buyers and sellers, and to drive more viewings and valuation requests through a clear, visible contact flow.',
-        ],
-        features: [
-          {
-            title: 'Property-first browsing',
-            body: 'Listings lead every key page, so buyers find homes before they find clutter.',
-          },
-          {
-            title: 'Fast enquiry paths',
-            body: 'Viewing requests and valuations sit where people already decide — not buried in a footer.',
-          },
-          {
-            title: 'Agent portal',
-            body: 'Staff update stock and hand off leads without juggling spreadsheets.',
-          },
-        ],
-        visuals: [
-          {
-            src: '/images/work/greenfield-estates/homepage.png',
-            alt: 'Greenfield Estates homepage with property search hero',
-            caption:
-              'A simple, clean homepage that leads with the offer, not fluff.',
-          },
-          {
-            src: '/images/work/greenfield-estates/homepage-listing-section.png',
-            alt: 'Greenfield Estates latest property listings grid',
-            caption: 'Property listings designed for scannability on mobile.',
-            layout: 'half',
-          },
-          {
-            src: '/images/work/greenfield-estates/services.png',
-            alt: 'Greenfield Estates property services section',
-            caption: 'Services offered by Greenfield Estates.',
-            layout: 'half',
-          },
-          {
-            src: '/images/work/greenfield-estates/client-testimonials.png',
-            alt: 'Greenfield Estates client testimonials carousel',
-            caption: 'Client testimonials from Greenfield Estates.',
-            layout: 'full',
-          },
-          {
-            src: '/images/work/greenfield-estates/property-detail-page.png',
-            alt: 'Greenfield Estates property details page for a listing',
-            caption: 'Property details page for a specific property.',
-            layout: 'full',
-          },
-          {
-            src: '/images/work/greenfield-estates/contact.png',
-            alt: 'Greenfield Estates contact and enquiry form',
-            caption: 'Contact form for enquiries with different options.',
-            layout: 'full',
-          },
-        ],
-        journey: [
-          {
-            step: '01',
-            title: 'Discover',
-            body: 'A buyer lands on a clear homepage and searches by area or type.',
-          },
-          {
-            step: '02',
-            title: 'Decide',
-            body: 'Strong photos and essentials help them shortlist without friction.',
-          },
-          {
-            step: '03',
-            title: 'Enquire',
-            body: 'One tap to request a viewing — straight to the right agent.',
-          },
-        ],
-        tools: ['Next.js', 'Headless CMS', 'Map search', 'Email automation'],
-        outcomes: [
-          { value: '+38%', label: 'More enquiries' },
-          { value: '+24%', label: 'More valuation requests' },
-          { value: '2×', label: 'Faster page load times' },
-        ],
-        note: {
-          label: 'Client note',
-          body: '“We finally have a site that looks as professional as the service we give in person.”',
-          attribution: 'Director, Greenfield Estates',
-        },
-      },
-    },
-    {
-      id: 2,
-      title: 'Drip',
-      category: 'Restaurants',
-      type: 'Logo & Branding',
-      year: '2022',
-      image: '/images/work/drip/logo.svg',
-      description: 'A logo and brand system for a new restaurant.',
-      deliverables: ['Logo design', 'Branding'],
-    },
-    {
-      id: 3,
       slug: 'faith-uk',
       title: 'F.A.I.T.H',
       category: 'Charity & Non-Profit',
@@ -349,6 +220,135 @@ export const ourWork = {
           attribution: 'Atia Lokhat, F.A.I.T.H',
         },
       },
+    },
+    {
+      id: 2,
+      slug: 'greenfield-estates',
+      title: 'Greenfield Estates',
+      category: 'Estate Agents',
+      type: 'Website & Portal',
+      year: '2026',
+      image: '/images/work/greenfield-estates/hero.png',
+      description:
+        'A conversion-led website and agent portal that turns property browsers into viewings.',
+      deliverables: ['UX/UI design', 'Web development', 'Admin panel'],
+      caseStudy: {
+        seo: {
+          title: 'Greenfield Estates — Estate Agent Website Case Study',
+          description:
+            'How Digital Pillars built a conversion-led estate agent website and portal that turned more browsers into viewings and valuation requests.',
+        },
+        headline:
+          'More viewings. Clearer listings. A site that sells the property — not the template. Powered by our own software, so you can update listings and manage enquiries yourself.',
+        heroImage: '/images/work/greenfield-estates/hero.png',
+        overview: [
+          { label: 'Industry', value: 'Estate Agents' },
+          { label: 'Project', value: 'Website & portal' },
+          {
+            label: 'Objective',
+            value: 'More viewings & clearer listings.',
+          },
+          { label: 'Timeline', value: '6 Weeks' },
+        ],
+        challenge: [
+          'Their old site looked dated and buried strong listings under clutter. Buyers bounced on mobile before they found what they needed.',
+          'Agents spent too long chasing leads that never arrived — and updating stock felt harder than it should.',
+        ],
+        solution: [
+          'Greenfield Estates is a conversion-led website and agent portal for a modern estate agency. It is designed to put properties first, make enquiries simple, and help agents keep listings fresh without IT headaches.',
+          'The goal was to create a premium first impression that builds trust with buyers and sellers, and to drive more viewings and valuation requests through a clear, visible contact flow.',
+        ],
+        features: [
+          {
+            title: 'Property-first browsing',
+            body: 'Listings lead every key page, so buyers find homes before they find clutter.',
+          },
+          {
+            title: 'Fast enquiry paths',
+            body: 'Viewing requests and valuations sit where people already decide — not buried in a footer.',
+          },
+          {
+            title: 'Agent portal',
+            body: 'Staff update stock and hand off leads without juggling spreadsheets.',
+          },
+        ],
+        visuals: [
+          {
+            src: '/images/work/greenfield-estates/homepage.png',
+            alt: 'Greenfield Estates homepage with property search hero',
+            caption:
+              'A simple, clean homepage that leads with the offer, not fluff.',
+          },
+          {
+            src: '/images/work/greenfield-estates/homepage-listing-section.png',
+            alt: 'Greenfield Estates latest property listings grid',
+            caption: 'Property listings designed for scannability on mobile.',
+            layout: 'half',
+          },
+          {
+            src: '/images/work/greenfield-estates/services.png',
+            alt: 'Greenfield Estates property services section',
+            caption: 'Services offered by Greenfield Estates.',
+            layout: 'half',
+          },
+          {
+            src: '/images/work/greenfield-estates/client-testimonials.png',
+            alt: 'Greenfield Estates client testimonials carousel',
+            caption: 'Client testimonials from Greenfield Estates.',
+            layout: 'full',
+          },
+          {
+            src: '/images/work/greenfield-estates/property-detail-page.png',
+            alt: 'Greenfield Estates property details page for a listing',
+            caption: 'Property details page for a specific property.',
+            layout: 'full',
+          },
+          {
+            src: '/images/work/greenfield-estates/contact.png',
+            alt: 'Greenfield Estates contact and enquiry form',
+            caption: 'Contact form for enquiries with different options.',
+            layout: 'full',
+          },
+        ],
+        journey: [
+          {
+            step: '01',
+            title: 'Discover',
+            body: 'A buyer lands on a clear homepage and searches by area or type.',
+          },
+          {
+            step: '02',
+            title: 'Decide',
+            body: 'Strong photos and essentials help them shortlist without friction.',
+          },
+          {
+            step: '03',
+            title: 'Enquire',
+            body: 'One tap to request a viewing — straight to the right agent.',
+          },
+        ],
+        tools: ['Next.js', 'Headless CMS', 'Map search', 'Email automation'],
+        outcomes: [
+          { value: '+38%', label: 'More enquiries' },
+          { value: '+24%', label: 'More valuation requests' },
+          { value: '2×', label: 'Faster page load times' },
+        ],
+        note: {
+          label: 'Client note',
+          body: '“We finally have a site that looks as professional as the service we give in person.”',
+          attribution: 'Director, Greenfield Estates',
+        },
+      },
+    },
+    {
+      id: 3,
+      title: 'Drip',
+      category: 'Restaurants',
+      type: 'Logo & Branding',
+      year: '2022',
+      image: '/images/work/drip/logo.svg',
+      description: 'A logo and brand system for a new restaurant.',
+      deliverables: ['Logo design', 'Branding'],
     },
   ] as Project[],
   emptyState: 'No projects in this category yet — check back soon.',

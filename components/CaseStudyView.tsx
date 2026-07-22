@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { FinalCta } from '@/components/FinalCta';
-import { useSeo } from '@/hooks/useSeo';
 import { ourWork, type Project, type CaseStudy } from '@/content/our-work';
 
 type CaseStudyViewProps = {
@@ -44,19 +44,29 @@ function groupCaseStudyVisuals(visuals: CaseStudyVisual[]) {
   return rows;
 }
 
-function CaseStudyVisual({
+function CaseStudyVisualFrame({
   visual,
   delay = 0,
   className = '',
+  sizes = '100vw',
 }: {
   visual: CaseStudyVisual;
   delay?: number;
   className?: string;
+  sizes?: string;
 }) {
   return (
     <Reveal delay={delay} className={className}>
       <div className="overflow-hidden rounded border border-white/10 bg-brand-navy">
-        <img src={visual.src} alt={visual.alt} className="h-auto w-full" />
+        <Image
+          src={visual.src}
+          alt={visual.alt}
+          width={1900}
+          height={1100}
+          sizes={sizes}
+          className="h-auto w-full"
+          style={{ width: '100%', height: 'auto' }}
+        />
       </div>
       {visual.caption && (
         <p className="mt-4 text-sm text-white/45">{visual.caption}</p>
@@ -68,7 +78,6 @@ function CaseStudyVisual({
 export function CaseStudyView({ project }: CaseStudyViewProps) {
   const { caseStudy } = project;
   const copy = ourWork.caseStudy;
-  useSeo(caseStudy.seo);
 
   const [leadVisual, ...moreVisuals] = caseStudy.visuals;
   const visualRows = groupCaseStudyVisuals(moreVisuals);
@@ -204,7 +213,7 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
             <p className="overline text-brand-cyan">{copy.visualsEyebrow}</p>
           </Reveal>
           {leadVisual && (
-            <CaseStudyVisual visual={leadVisual} delay={0.1} className="mt-10" />
+            <CaseStudyVisualFrame visual={leadVisual} delay={0.1} className="mt-10" />
           )}
           {visualRows.length > 0 && (
             <div className="mt-8 flex flex-col gap-8">
@@ -217,17 +226,22 @@ export function CaseStudyView({ project }: CaseStudyViewProps) {
                       key={`${row.items[0].src}-${row.items[1].src}`}
                       className="grid grid-cols-1 gap-8 md:grid-cols-2"
                     >
-                      <CaseStudyVisual visual={row.items[0]} delay={delay} />
-                      <CaseStudyVisual
+                      <CaseStudyVisualFrame
+                        visual={row.items[0]}
+                        delay={delay}
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                      <CaseStudyVisualFrame
                         visual={row.items[1]}
                         delay={delay + 0.04}
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                     </div>
                   );
                 }
 
                 return (
-                  <CaseStudyVisual
+                  <CaseStudyVisualFrame
                     key={row.item.src}
                     visual={row.item}
                     delay={delay}

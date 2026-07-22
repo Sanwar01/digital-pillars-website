@@ -7,9 +7,9 @@ export type EnquiryServiceId =
 
 export const contact = {
   seo: {
-    title: 'Contact | Digital Pillars Manchester',
+    title: 'Contact | Digital Pillars',
     description:
-      'Book a free discovery call or send an enquiry to Digital Pillars. Manchester web design and software agency — reply within one working day.',
+      'Book a free discovery call or send an enquiry. We reply within one working day — Manchester-based, working with clients across the UK.',
   },
   hero: {
     eyebrow: 'Contact',

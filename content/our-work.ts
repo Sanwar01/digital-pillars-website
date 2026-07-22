@@ -44,9 +44,9 @@ const img = (id: string, w = 1600) =>
 
 export const ourWork = {
   seo: {
-    title: 'Our Work | Portfolio — Digital Pillars Manchester',
+    title: 'Portfolio & Case Studies | Digital Pillars',
     description:
-      "Explore Digital Pillars' portfolio of websites, web apps and digital projects for estate agents, charities, startups, energy and housing associations in Manchester.",
+      "Browse Digital Pillars' portfolio — websites, portals and digital projects for estate agents, charities, startups, energy and housing associations.",
   },
   hero: {
     eyebrow: 'Selected work',
@@ -80,9 +80,9 @@ export const ourWork = {
       deliverables: ['UX/UI design', 'Web development', 'Admin panel'],
       caseStudy: {
         seo: {
-          title: 'Greenfield Estates Case Study | Digital Pillars',
+          title: 'Greenfield Estates — Estate Agent Website Case Study',
           description:
-            'A conversion-led estate agency website and portal that turned more browsers into viewings.',
+            'How Digital Pillars built a conversion-led estate agent website and portal that turned more browsers into viewings and valuation requests.',
         },
         headline:
           'More viewings. Clearer listings. A site that sells the property — not the template. Powered by our own software, so you can update listings and manage enquiries yourself.',
@@ -121,37 +121,37 @@ export const ourWork = {
         visuals: [
           {
             src: '/images/work/greenfield-estates/homepage.png',
-            alt: 'Greenfield Estates homepage',
+            alt: 'Greenfield Estates homepage with property search hero',
             caption:
               'A simple, clean homepage that leads with the offer, not fluff.',
           },
           {
             src: '/images/work/greenfield-estates/homepage-listing-section.png',
-            alt: 'Property listing',
+            alt: 'Greenfield Estates latest property listings grid',
             caption: 'Property listings designed for scannability on mobile.',
             layout: 'half',
           },
           {
             src: '/images/work/greenfield-estates/services.png',
-            alt: 'Greenfield Estates services',
+            alt: 'Greenfield Estates property services section',
             caption: 'Services offered by Greenfield Estates.',
             layout: 'half',
           },
           {
             src: '/images/work/greenfield-estates/client-testimonials.png',
-            alt: 'Greenfield Estates client testimonials',
+            alt: 'Greenfield Estates client testimonials carousel',
             caption: 'Client testimonials from Greenfield Estates.',
             layout: 'full',
           },
           {
             src: '/images/work/greenfield-estates/property-detail-page.png',
-            alt: 'Property details page',
+            alt: 'Greenfield Estates property details page for a listing',
             caption: 'Property details page for a specific property.',
             layout: 'full',
           },
           {
             src: '/images/work/greenfield-estates/contact.png',
-            alt: 'Contact form',
+            alt: 'Greenfield Estates contact and enquiry form',
             caption: 'Contact form for enquiries with different options.',
             layout: 'full',
           },
@@ -213,9 +213,9 @@ export const ourWork = {
       ],
       caseStudy: {
         seo: {
-          title: 'F.A.I.T.H Website Case Study | Digital Pillars',
+          title: 'F.A.I.T.H — Charity & Community Website Case Study',
           description:
-            'How Digital Pillars designed and built the launch website for F.A.I.T.H to establish credibility, communicate its mission and encourage nationwide survey participation.',
+            'How Digital Pillars designed and built the F.A.I.T.H launch website to build credibility, explain the mission and drive nationwide survey participation.',
         },
         headline:
           'Launching a new national organisation with a website designed to build trust and encourage community participation.',
@@ -271,32 +271,32 @@ export const ourWork = {
         visuals: [
           {
             src: '/images/work/faith/homepage.png',
-            alt: 'Homepage',
+            alt: 'F.A.I.T.H homepage introducing the organisation and its mission',
             caption: 'Introducing the organisation and its mission.',
           },
           {
             src: '/images/work/faith/challenge.png',
-            alt: 'Challenge page',
+            alt: 'F.A.I.T.H challenge page explaining the problem the organisation addresses',
             caption: 'Explaining the vision, purpose and community impact.',
             layout: 'half',
           },
           {
             src: '/images/work/faith/mission.png',
-            alt: 'Mission page',
+            alt: 'F.A.I.T.H mission page outlining purpose and community impact',
             caption:
               "Providing clarity on the organisation's purpose and community impact.",
             layout: 'half',
           },
           {
             src: '/images/work/faith/survey-section.png',
-            alt: 'Survey section',
+            alt: 'F.A.I.T.H survey call-to-action encouraging nationwide participation',
             caption:
               'Encouraging visitors to participate in the nationwide survey.',
             layout: 'full',
           },
           {
             src: '/images/work/faith/enquiry.png',
-            alt: 'Enquiry form',
+            alt: 'F.A.I.T.H enquiry form for visitor contact and participation',
             caption: 'Designed to encourage visitor participation.',
           },
         ],
@@ -339,7 +339,7 @@ export const ourWork = {
             label: 'More survey responses from the UK',
           },
           {
-            value: 'Visbility',
+            value: 'Visibility',
             label: 'Increased visibility of the organisation online',
           },
         ],

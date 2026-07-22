@@ -25,6 +25,7 @@ export const FOOTER_NAV = [
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Our work', to: '/our-work' },
+  { label: 'Free homepage design', to: '/free-homepage-design' },
   { label: 'Contact', to: '/contact' },
 ] as const;
 

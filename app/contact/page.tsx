@@ -4,7 +4,6 @@ import { ArrowRight, Calendar, ChevronRight, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { EnquiryWizard } from '@/components/EnquiryWizard';
-import { useSeo } from '@/hooks/useSeo';
 import { SITE } from '@/content/site';
 import { contact } from '@/content/contact';
 import {
@@ -15,7 +14,6 @@ import {
 } from '@/components/ui/accordion';
 
 export default function Contact() {
-  useSeo(contact.seo);
 
   return (
     <div data-testid="contact-page">

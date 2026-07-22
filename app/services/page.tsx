@@ -2,7 +2,6 @@
 
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { FinalCta } from '@/components/FinalCta';
-import { useSeo } from '@/hooks/useSeo';
 import { SERVICES } from '@/content/site';
 import { services } from '@/content/services';
 import {
@@ -14,7 +13,6 @@ import {
 import { Check } from 'lucide-react';
 
 export default function Services() {
-  useSeo(services.seo);
 
   return (
     <div data-testid="services-page">

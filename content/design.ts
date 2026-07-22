@@ -36,9 +36,9 @@ export type DesignRequest = {
 
 export const design = {
   seo: {
-    title: 'Free Homepage Design | Digital Pillars Manchester',
+    title: 'Free Homepage Design Concept | Digital Pillars',
     description:
-      'Get a free homepage concept for your business — a real design direction from Digital Pillars, delivered within 48 hours. No commitment, no payment details.',
+      'Request a free homepage design concept for your business — a real visual direction from Digital Pillars, delivered within 48 hours. No commitment, no payment details.',
   },
   hero: {
     eyebrow: 'Free homepage concept',

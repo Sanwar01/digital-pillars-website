@@ -24,7 +24,7 @@ export function Logo({
       className={`flex items-center gap-2.5 ${className}`}
     >
       <Image
-        src="/favicon.png"
+        src="/images/brand/mark.png"
         alt={SITE.name}
         width={iconSize}
         height={iconSize}

@@ -2,11 +2,9 @@
 
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { DesignRequestForm } from '@/components/DesignRequestForm';
-import { useSeo } from '@/hooks/useSeo';
 import { design } from '@/content/design';
 
 export default function FreeHomepageDesign() {
-  useSeo(design.seo);
 
   return (
     <div data-testid="design-page">

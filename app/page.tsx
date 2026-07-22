@@ -2,18 +2,17 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Star } from 'lucide-react';
 import { Reveal, KineticHeadline } from '@/components/Reveal';
 import { CtaButton } from '@/components/CtaButton';
 import { Marquee } from '@/components/Marquee';
 import { FinalCta } from '@/components/FinalCta';
-import { useSeo } from '@/hooks/useSeo';
 import { SERVICES, INDUSTRIES } from '@/content/site';
 import { home } from '@/content/home';
 
 export default function Home() {
-  useSeo(home.seo);
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: heroRef,
@@ -29,11 +28,17 @@ export default function Home() {
         ref={heroRef}
         className="relative flex min-h-screen items-end overflow-hidden"
       >
-        <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <img
+        <motion.div
+          style={{ y }}
+          className="absolute inset-0 z-0 h-[128%] w-full"
+        >
+          <Image
             src={home.hero.image}
             alt={home.hero.imageAlt}
-            className="h-[128%] w-full object-cover"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
         </motion.div>
         <motion.div
@@ -226,14 +231,16 @@ export default function Home() {
       >
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-20">
           <Reveal>
-            <div className="overflow-hidden rounded border border-white/10">
-              <motion.img
-                src={home.aboutPreview.image}
-                alt={home.aboutPreview.imageAlt}
-                className="aspect-[4/3] w-full object-cover"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              />
+            <div className="group overflow-hidden rounded border border-white/10">
+              <div className="relative aspect-[4/3] w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105">
+                <Image
+                  src={home.aboutPreview.image}
+                  alt={home.aboutPreview.imageAlt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
             </div>
           </Reveal>
           <Reveal delay={0.1}>

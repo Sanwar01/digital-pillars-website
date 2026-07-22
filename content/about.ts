@@ -2,9 +2,9 @@ import { Target, Eye, Handshake, Zap } from 'lucide-react';
 
 export const about = {
   seo: {
-    title: 'About | Digital Pillars — Web Design Agency Manchester',
+    title: 'About Us | Digital Pillars',
     description:
-      'Meet Digital Pillars, a Manchester-based web design and software agency helping estate agents, charities, startups, energy and housing businesses grow.',
+      'Meet the Manchester team behind Digital Pillars — how we work with estate agents, charities, startups, energy and housing businesses to ship websites and software that grow.',
   },
   hero: {
     eyebrow: 'About Digital Pillars',

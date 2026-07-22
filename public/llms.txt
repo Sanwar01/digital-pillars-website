@@ -1,0 +1,30 @@
+# Digital Pillars
+
+> Digital Pillars is a Manchester-based web design and software agency. We build websites, web applications, digital strategy and AI automation for UK businesses that want more enquiries, clearer systems and sustainable growth.
+
+## Site
+
+- Home: https://digitalpillars.co.uk/
+- About: https://digitalpillars.co.uk/about
+- Services: https://digitalpillars.co.uk/services
+- Our work: https://digitalpillars.co.uk/our-work
+- Contact: https://digitalpillars.co.uk/contact
+- Free homepage design: https://digitalpillars.co.uk/free-homepage-design
+
+## Services
+
+- Website design & development
+- Software & web applications
+- Digital strategy & consulting
+- AI & automation
+
+## Case studies
+
+- Greenfield Estates: https://digitalpillars.co.uk/our-work/greenfield-estates
+- F.A.I.T.H: https://digitalpillars.co.uk/our-work/faith-uk
+
+## Contact
+
+- Email: hello@digitalpillars.co.uk
+- Location: Manchester, UK
+- Instagram: https://www.instagram.com/digitalpillars

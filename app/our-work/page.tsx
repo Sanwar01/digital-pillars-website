@@ -1,20 +1,18 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { KineticHeadline, Reveal } from '@/components/Reveal';
 import { FinalCta } from '@/components/FinalCta';
-import { useSeo } from '@/hooks/useSeo';
 import { ourWork } from '@/content/our-work';
 
 export default function Listings() {
-  useSeo(ourWork.seo);
-
   return (
     <div data-testid="listings-page">
       {/* HERO */}
-      <section className="mx-auto max-w-[1400px] px-6 pb-12 pt-40 md:px-10 md :pb-16 md:pt-52">
+      <section className="mx-auto max-w-[1400px] px-6 pb-12 pt-40 md:px-10 md:pb-16 md:pt-52">
         <p className="overline text-brand-cyan">{ourWork.hero.eyebrow}</p>
         <h1 className="mt-6 max-w-5xl font-display text-[12vw] leading-[0.9] sm:text-[9vw] lg:text-[7vw]">
           <KineticHeadline lines={[...ourWork.hero.lines]} />
@@ -33,18 +31,24 @@ export default function Listings() {
           className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-10 md:gap-y-16"
         >
           <AnimatePresence mode="popLayout">
-            {ourWork.projects.map((p, i) => {
+            {ourWork.projects.map((p) => {
               const hasCaseStudy = Boolean(p.caseStudy);
               const card = (
                 <>
                   <div className="overflow-hidden rounded border border-white/10">
-                    <img
-                      src={p.image}
-                      alt={`${p.title} — ${p.type} project by Digital Pillars`}
-                      className={`aspect-[4/3] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    <div
+                      className={`relative aspect-[4/3] w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                         hasCaseStudy ? 'group-hover:scale-105' : ''
                       }`}
-                    />
+                    >
+                      <Image
+                        src={p.image}
+                        alt={`${p.title} — ${p.type} project by Digital Pillars`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
                   <div className="mt-5 flex items-start justify-between gap-4">
                     <div className="min-w-0">

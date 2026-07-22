@@ -10,7 +10,7 @@ export const home = {
     image:
       'https://images.unsplash.com/photo-1487958449943-2429e8be8625?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600',
     imageAlt: 'Abstract dark architecture representing digital foundations',
-    eyebrow: 'Digital Agency · Manchester, UK',
+    eyebrow: 'Web Design & Software Agency · Manchester, UK',
     lines: ['We build the', 'digital pillars', 'your business'],
     accentLine: 'stands on.',
     body: 'Websites, software, strategy and AI automation — engineered to beat your competitors and win you more leads.',
@@ -68,11 +68,11 @@ export const home = {
   ],
   aboutPreview: {
     eyebrow: 'Who we are',
-    headline: "A Manchester studio with a builder's mindset.",
+    headline: "A Manchester tech agency with a builder's mindset.",
     body: "We're a tight-knit team of designers, engineers and strategists. No bloated account layers, no jargon — just senior people who care about your outcomes as much as you do.",
     image:
       'https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=srgb&fm=jpg&q=85&w=1100',
-    imageAlt: 'Digital Pillars studio workspace in Manchester',
+    imageAlt: 'Digital Pillars tech agency workspace in Manchester',
     cta: { label: 'Our story', href: '/about' },
   },
 } as const;

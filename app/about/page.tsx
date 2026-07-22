@@ -3,12 +3,10 @@
 import { motion } from 'framer-motion';
 import { Reveal, KineticHeadline } from '@/components/Reveal';
 import { FinalCta } from '@/components/FinalCta';
-import { useSeo } from '@/hooks/useSeo';
 import { INDUSTRIES } from '@/content/site';
 import { about } from '@/content/about';
 
 export default function About() {
-  useSeo(about.seo);
 
   return (
     <div data-testid="about-page">

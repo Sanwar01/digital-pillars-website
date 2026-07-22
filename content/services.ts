@@ -1,8 +1,8 @@
 export const services = {
   seo: {
-    title: 'Services | Web Design, Software & AI — Digital Pillars Manchester',
+    title: 'Web Design, Software & AI Services | Digital Pillars',
     description:
-      'Website design & development, web applications, digital strategy and AI automation from Digital Pillars, a Manchester software and web design agency.',
+      'Website design & development, custom web apps, digital strategy and AI automation — scoped for growth, delivered by Digital Pillars in Manchester and across the UK.',
   },
   hero: {
     eyebrow: 'Services',

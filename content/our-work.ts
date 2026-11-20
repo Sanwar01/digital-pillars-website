@@ -69,6 +69,189 @@ export const ourWork = {
   projects: [
     {
       id: 1,
+      slug: 'world-quran-awareness-day',
+      title: 'World Quran Awareness Day',
+      category: 'Charity & Community',
+      type: 'Website Design & Development',
+      year: '2026',
+      image: '/images/work/wqad/card-hero.png',
+      description:
+        'A welcoming digital platform bringing together global awareness campaigns, community stories and opportunities to participate.',
+      deliverables: [
+        'Web Design',
+        'Web Development',
+        'Responsive Design',
+        'Donation Integration',
+      ],
+      caseStudy: {
+        seo: {
+          title:
+            'World Quran Awareness Day | Website Design & Development | Digital Pillars',
+          description:
+            'Discover how we created a responsive website for World Quran Awareness Day, bringing together annual campaigns, community stories, donations and participation.',
+        },
+        headline:
+          'A digital home connecting communities through awareness, learning and participation.',
+        heroImage: '/images/work/wqad/hero.png',
+        overview: [
+          {
+            label: 'Client',
+            value: 'World Quran Awareness Day',
+          },
+          {
+            label: 'Industry',
+            value: 'Charity & Community',
+          },
+          {
+            label: 'Services',
+            value: 'Website Design & Development',
+          },
+          {
+            label: 'Platform',
+            value: 'WordPress',
+          },
+          {
+            label: 'Year',
+            value: '2026',
+          },
+        ],
+        challenge: [
+          'World Quran Awareness Day needed a welcoming digital platform to communicate its mission, showcase annual awareness themes and encourage people from different backgrounds to get involved.',
+          'With educational content, community stories and multiple ways to participate, the challenge was to bring everything together into a clear, engaging experience that visitors could easily explore.',
+          'The website also needed a consistent visual identity across its pages, with layouts that could support both current campaigns and future initiatives.',
+        ],
+        solution: [
+          "We created a responsive, multi-page website that brings together the initiative's mission, annual themes, community stories and opportunities to participate in one accessible digital experience.",
+
+          'Starting with a clear visual direction, we designed additional page layouts around the supplied content, creating a consistent look and feel throughout the website.',
+
+          'The finished platform combines purposeful storytelling, intuitive navigation, multimedia content, donation functionality and newsletter registration, helping visitors discover the initiative and take meaningful action.',
+        ],
+        features: [
+          {
+            title: 'Purpose-Led Homepage',
+            body: "A visually engaging introduction that communicates the initiative's mission and guides visitors towards exploring its themes and getting involved.",
+          },
+          {
+            title: 'Annual Awareness Campaigns',
+            body: "Dedicated content showcasing previous and current themes, helping visitors understand the initiative's journey and the message behind each campaign.",
+          },
+          {
+            title: 'Community Voices',
+            body: 'An interactive video experience that brings together community perspectives and personal stories, making the initiative more relatable and engaging.',
+          },
+          {
+            title: 'Ways to Get Involved',
+            body: 'Clear participation pathways for individuals, families, schools, workplaces and communities, making it easier to discover how to take part.',
+          },
+          {
+            title: 'Donations & Newsletter',
+            body: 'Donation functionality and newsletter registration provide opportunities to support the initiative and stay connected with future activities.',
+          },
+          {
+            title: 'Responsive Experience',
+            body: 'Carefully adapted layouts ensure the website remains easy to navigate and visually consistent across desktop, tablet and mobile devices.',
+          },
+        ],
+        visuals: [
+          {
+            src: '/images/work/wqad/hero.png',
+            alt: 'World Quran Awareness Day homepage featuring the main campaign introduction',
+            caption:
+              "A welcoming homepage designed to communicate the initiative's purpose.",
+            layout: 'full',
+          },
+          {
+            src: '/images/work/wqad/theme.png',
+            alt: 'Annual awareness themes displayed in the World Quran Awareness Day website',
+            caption:
+              "Exploring the initiative's journey through its annual themes.",
+            layout: 'half',
+          },
+          {
+            src: '/images/work/wqad/community.png',
+            alt: 'Community Voices video gallery on the World Quran Awareness Day website',
+            caption:
+              'Sharing real perspectives through an interactive video experience.',
+            layout: 'half',
+          },
+          {
+            src: '/images/work/wqad/take-part.png',
+            alt: 'Participation opportunities for individuals and communities',
+            caption:
+              'Helping visitors discover meaningful ways to get involved.',
+            layout: 'full',
+          },
+          {
+            src: '/images/work/wqad/mobile.png',
+            alt: 'Mobile responsive design of the World Quran Awareness Day website',
+            caption:
+              'A consistent experience across desktop and mobile devices.',
+            layout: 'half',
+          },
+          {
+            src: '/images/work/wqad/donation.png',
+            alt: 'Donation and supporter engagement functionality on the website',
+            caption:
+              'Making it easier for visitors to support and stay connected.',
+            layout: 'half',
+          },
+        ],
+        journey: [
+          {
+            step: '01',
+            title: 'Understanding the Vision',
+            body: "We explored the initiative's mission, audiences and content requirements to establish a clear website structure and user journey.",
+          },
+          {
+            step: '02',
+            title: 'Designing the Experience',
+            body: 'We developed a cohesive visual direction and designed page layouts around the content, creating a consistent experience across the website.',
+          },
+          {
+            step: '03',
+            title: 'Building the Website',
+            body: 'We implemented the responsive website, integrating campaign content, community videos, participation opportunities, forms and donation functionality.',
+          },
+          {
+            step: '04',
+            title: 'Refining & Launching',
+            body: 'We incorporated feedback, refined the layouts and functionality, and completed testing and deployment to deliver the live website.',
+          },
+        ],
+        tools: [
+          'WordPress',
+          'Elementor',
+          'Responsive Web Design',
+          'Content Management',
+          'Donation Integration',
+        ],
+        outcomes: [
+          {
+            value: '1',
+            label: 'Central platform for campaigns and community engagement',
+          },
+          {
+            value: 'Multi-page',
+            label: 'Consistent website experience',
+          },
+          {
+            value: 'Responsive',
+            label: 'Designed for desktop, tablet and mobile',
+          },
+          {
+            value: 'Live',
+            label: 'Website launched and ready for future campaigns',
+          },
+        ],
+        note: {
+          label: 'Project Highlight',
+          body: 'A thoughtfully designed digital platform that brings together awareness, storytelling and participation, giving World Quran Awareness Day a foundation for future campaigns and community engagement.',
+        },
+      },
+    },
+    {
+      id: 2,
       slug: 'faith-uk',
       title: 'F.A.I.T.H',
       category: 'Charity & Non-Profit',
@@ -222,7 +405,7 @@ export const ourWork = {
       },
     },
     {
-      id: 2,
+      id: 3,
       slug: 'greenfield-estates',
       title: 'Greenfield Estates',
       category: 'Estate Agents',
@@ -341,7 +524,7 @@ export const ourWork = {
       },
     },
     {
-      id: 3,
+      id: 4,
       title: 'Drip',
       category: 'Restaurants',
       type: 'Logo & Branding',
